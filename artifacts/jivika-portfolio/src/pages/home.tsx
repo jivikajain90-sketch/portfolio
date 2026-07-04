@@ -114,7 +114,7 @@ export default function Home() {
               </svg>
             </div>
             
-            <p className="font-hand text-2xl md:text-3xl text-foreground/70 mb-6 flex items-center gap-4 rotate-[-2deg]">
+            <p className="font-sans font-semibold uppercase tracking-[0.2em] text-sm md:text-base text-foreground/60 mb-6 flex items-center gap-4">
               Marketing Strategist, based in Sydney
             </p>
             
