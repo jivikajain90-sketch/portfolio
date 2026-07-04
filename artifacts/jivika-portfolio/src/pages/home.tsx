@@ -400,7 +400,16 @@ function WorkCard({ work, index }: { work: any; index: number }) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4, delay: index * 0.04 }}
-        className="bg-background text-foreground p-6 flex flex-col h-fit"
+        onClick={() => setOpen(true)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setOpen(true);
+          }
+        }}
+        className="bg-background text-foreground p-6 flex flex-col h-fit cursor-pointer transition-shadow hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex gap-1.5">
@@ -426,12 +435,9 @@ function WorkCard({ work, index }: { work: any; index: number }) {
           ))}
         </div>
 
-        <button
-          onClick={() => setOpen(true)}
-          className="font-bold text-primary hover:underline text-sm text-left mt-auto pt-2"
-        >
+        <span className="font-bold text-primary text-sm mt-auto pt-2">
           → open case
-        </button>
+        </span>
       </motion.div>
 
       <Dialog open={open} onOpenChange={setOpen}>
