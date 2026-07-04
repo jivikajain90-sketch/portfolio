@@ -114,13 +114,13 @@ export default function Home() {
               </svg>
             </div>
             
-            <p className="font-sans font-semibold uppercase tracking-[0.2em] text-sm md:text-base text-foreground/60 mb-6 flex items-center gap-4">
+            <p className="font-hand text-2xl md:text-3xl text-foreground/70 mb-6 flex items-center gap-4 rotate-[-2deg]">
               Marketing Strategist, based in Sydney
             </p>
             
             <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-serif font-black leading-[0.85] tracking-tighter mb-10">
               <span className="block">FINDING</span>
-              <span className="block italic text-primary">PATTERNS.</span>
+              <span className="block text-primary">PATTERNS.</span>
               <span className="block">BUILDING</span>
               <span className="block">STRATEGY.</span>
             </h1>
@@ -146,7 +146,7 @@ export default function Home() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section id="approach" className="py-32 px-6 md:px-12 lg:px-24 bg-foreground text-background">
+        <section id="approach" className="py-20 px-6 md:px-12 lg:px-24 bg-foreground text-background">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-12 gap-16">
               <div className="md:col-span-5">
@@ -194,8 +194,8 @@ export default function Home() {
         </section>
 
         {/* WORK SECTION */}
-        <section id="work" className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+        <section id="work" className="py-20 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
             <div className="relative">
               <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter uppercase relative z-10">
                 Selected Work
@@ -229,7 +229,7 @@ export default function Home() {
             </AnimatePresence>
           </div>
           
-          <div className="mt-32 p-12 bg-secondary relative">
+          <div className="mt-16 p-12 bg-secondary relative">
             <div className="absolute -top-6 -left-6 bg-pastel-yellow text-foreground font-hand text-2xl px-4 py-1 rotate-[-5deg] shadow-lg">
               Plus a few more!
             </div>
@@ -243,14 +243,14 @@ export default function Home() {
         </section>
 
         {/* TOOLKIT SECTION */}
-        <section id="toolkit" className="py-32 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground relative overflow-hidden">
+        <section id="toolkit" className="py-20 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground relative overflow-hidden">
           {/* Decorative giant text */}
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none opacity-10 overflow-hidden">
             <span className="text-[30vw] font-serif font-black whitespace-nowrap text-outline">TOOLKIT</span>
           </div>
           
           <div className="max-w-7xl mx-auto relative z-10">
-            <div className="flex items-center justify-between mb-24">
+            <div className="flex items-center justify-between mb-16">
               <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter">THE TOOLKIT</h2>
               <div className="w-24 h-24 bg-background rounded-full hidden md:flex items-center justify-center text-foreground font-hand text-2xl rotate-[15deg]">
                 Skills!
@@ -284,8 +284,8 @@ export default function Home() {
         </section>
 
         {/* RECOGNITION SECTION */}
-        <section id="recognition" className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-          <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter mb-24">JOURNEY &<br/><span className="text-primary italic">MILESTONES</span></h2>
+        <section id="recognition" className="py-20 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+          <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter mb-16">JOURNEY &<br/><span className="text-primary">MILESTONES</span></h2>
           
           <div className="grid gap-0 border-t-4 border-foreground">
             {[
@@ -308,7 +308,7 @@ export default function Home() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section id="contact" className="py-32 px-6 md:px-12 lg:px-24 bg-foreground text-background">
+        <section id="contact" className="py-20 px-6 md:px-12 lg:px-24 bg-foreground text-background">
           <div className="max-w-5xl mx-auto text-center relative">
             <div className="absolute top-0 right-10 rotate-[12deg] text-pastel-yellow">
               <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -317,7 +317,7 @@ export default function Home() {
             </div>
             
             <h2 className="text-5xl md:text-8xl font-serif font-black tracking-tighter leading-[0.9] mb-16">
-              EVERY GOOD STRATEGY<br/>STARTS WITH A <span className="italic text-pastel-pink">QUESTION.</span>
+              EVERY GOOD STRATEGY<br/>STARTS WITH A <span className="text-pastel-pink">QUESTION.</span>
             </h2>
             <p className="font-hand text-4xl text-pastel-pink mb-12 -rotate-2">Let's explore yours.</p>
             
