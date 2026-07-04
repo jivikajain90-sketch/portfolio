@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jivika Jain — Marketing Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6EC;
+    --cream-deep:#F3ECDC;
+    --lavender-soft:#ECE3F7;
+    --lavender:#C9B6EA;
+    --lavender-deep:#7C5FAF;
+    --pink-soft:#FCE4EC;
+    --pink:#F3A6C2;
+    --pink-deep:#C24E7E;
+    --sage-soft:#E9F1E3;
+    --sage:#A8C79A;
+    --sage-deep:#4F7A47;
+    --butter:#F6D97A;
+    --butter-deep:#C99A15;
+    --ink:#3E3552;
+    --ink-soft:rgba(62,53,82,0.64);
+    --ink-faint:rgba(62,53,82,0.4);
+    --line:rgba(62,53,82,0.16);
+    --paper:#FFFDF8;
+    --max:1100px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--butter); color:var(--ink); }
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:600; margin:0; letter-spacing:-0.01em; color:var(--ink); }
+  a{ color:inherit; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; position:relative; }
+  .script{ font-family:'Caveat', cursive; color:var(--pink-deep); }
+  .eyebrow{
+    font-family:'Caveat', cursive; font-size:1.5rem; color:var(--pink-deep);
+    display:inline-block; transform:rotate(-2deg);
+  }
+  .label{ font-family:'Work Sans',sans-serif; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; }
+
+  /* ---------- scroll progress: a hand-drawn squiggle that fills with colour ---------- */
+  .progress-track{ position:fixed; top:0; left:0; right:0; height:5px; z-index:60; background:var(--cream-deep); }
+  .progress-fill{ height:100%; width:0%; background:linear-gradient(90deg, var(--lavender-deep), var(--pink-deep), var(--sage-deep)); transition:width .08s linear; border-radius:0 4px 4px 0; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:5px; z-index:50;
+    background:rgba(251,246,236,0.88); backdrop-filter:blur(8px);
+    border-bottom:2px solid var(--line);
+  }
+  .nav-inner{ max-width:var(--max); margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-name{ font-family:'Fraunces', serif; font-weight:600; font-size:1.1rem; }
+  .nav-links{ display:flex; gap:28px; list-style:none; margin:0; padding:0; font-size:0.9rem; }
+  .nav-links a{ text-decoration:none; color:var(--ink-soft); transition:color .2s; }
+  .nav-links a:hover{ color:var(--pink-deep); }
+  .nav-cta{
+    font-family:'Caveat',cursive; font-size:1.15rem; font-weight:600; padding:8px 20px;
+    border:2px solid var(--ink); border-radius:18px 6px 16px 8px; text-decoration:none;
+    color:var(--ink); background:var(--butter); white-space:nowrap; transform:rotate(-1deg);
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:2px 3px 0 var(--ink);
+  }
+  .nav-cta:hover{ transform:rotate(1deg) translateY(-2px); box-shadow:3px 5px 0 var(--ink); }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding:76px 0 40px; position:relative; }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:20px; align-items:center; }
+  .hero h1{ font-size:clamp(2.6rem, 6vw, 4.6rem); line-height:0.98; margin-top:6px; }
+  .hero .role{
+    font-weight:400; color:var(--ink); font-size:clamp(1.08rem,2vw,1.3rem);
+    margin-top:22px; max-width:520px; line-height:1.6;
+  }
+  .hero-art{ position:relative; }
+  .scroll-cue{ margin-top:48px; display:flex; align-items:center; }
+  .scroll-cue svg{ width:26px; height:40px; animation:bob 2s infinite ease-in-out; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(8px); } }
+
+  /* wave divider between sections */
+  .wave{ display:block; width:100%; height:56px; margin-bottom:-2px; position:relative; z-index:2; }
+  .wave path{ transition:fill .3s; }
+
+  /* generic sections */
+  section{ padding:88px 0; position:relative; }
+  .section-head{ margin-bottom:46px; max-width:640px; }
+  .section-tag{ color:var(--pink-deep); margin-bottom:12px; display:inline-block; }
+  .section-head h2{ font-size:clamp(1.7rem,3.6vw,2.4rem); }
+  .section-head p{ color:var(--ink-soft); margin-top:14px; font-size:1rem; max-width:560px; }
+
+  .band-lavender{ background:var(--lavender-soft); }
+  .band-pink{ background:var(--pink-soft); }
+  .band-sage{ background:var(--sage-soft); }
+  .band-cream{ background:var(--cream); }
+  .band-butter{ background:#FBEFCB; }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- APPROACH ---------- */
+  .approach .section-tag{ color:var(--lavender-deep); }
+  .tabs{ display:flex; flex-direction:column; gap:14px; }
+  .tab{
+    background:var(--paper); border:2px solid var(--ink); border-radius:16px 6px 16px 6px;
+    box-shadow:3px 4px 0 rgba(62,53,82,0.18);
+  }
+  .tab-head{ display:flex; align-items:baseline; gap:18px; padding:22px 26px; cursor:pointer; }
+  .tab-index{ font-family:'Caveat',cursive; color:var(--lavender-deep); font-size:1.3rem; }
+  .tab-title{ font-family:'Fraunces',serif; font-size:1.22rem; font-weight:600; flex:1; }
+  .tab-plus{ font-family:'Fraunces',serif; font-size:1.3rem; color:var(--ink-faint); transition:transform .3s; }
+  .tab.open .tab-plus{ transform:rotate(45deg); color:var(--pink-deep); }
+  .tab-body{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .tab-body-inner{ padding:0 26px 24px 62px; color:var(--ink-soft); font-size:0.98rem; max-width:600px; }
+  .tab.open .tab-body{ max-height:220px; }
+
+  /* ---------- WORK ---------- */
+  .work .section-tag{ color:var(--pink-deep); }
+  .filters{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px; }
+  .filter-btn{
+    font-family:'Work Sans',sans-serif; font-size:0.8rem; font-weight:600; padding:9px 18px;
+    border-radius:100px; border:2px solid var(--ink); background:var(--paper); color:var(--ink);
+    cursor:pointer; transition:.2s;
+  }
+  .filter-btn:hover{ transform:translateY(-2px); }
+  .filter-btn.active{ background:var(--ink); color:var(--cream); }
+  .filter-btn.active[data-filter="brand"]{ background:var(--pink-deep); border-color:var(--pink-deep); }
+  .filter-btn.active[data-filter="data"]{ background:var(--sage-deep); border-color:var(--sage-deep); }
+  .filter-btn.active[data-filter="social"]{ background:var(--lavender-deep); border-color:var(--lavender-deep); }
+
+  .swatch-note{ font-family:'Caveat', cursive; color:var(--pink-deep); font-size:1.15rem; margin:0 0 30px; transform:rotate(-1deg); max-width:420px; }
+
+  .cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:26px; }
+  .card{
+    background:var(--paper); border-radius:18px 18px 18px 4px; padding:0; overflow:hidden;
+    border:2px solid var(--ink); display:flex; flex-direction:column;
+    transition:transform .3s ease, box-shadow .3s ease;
+    box-shadow:4px 6px 0 rgba(62,53,82,0.15);
+    position:relative;
+  }
+  .card:nth-child(odd){ transform:rotate(-0.5deg); }
+  .card:nth-child(even){ transform:rotate(0.5deg); }
+  .card:hover{ transform:rotate(0deg) translateY(-6px); box-shadow:6px 10px 0 rgba(62,53,82,0.2); }
+  .card.hide{ display:none; }
+  .card[data-cat="brand"]{ --accent:var(--pink-deep); --accent-mid:var(--pink); --accent-soft:var(--pink-soft); }
+  .card[data-cat="data"]{ --accent:var(--sage-deep); --accent-mid:var(--sage); --accent-soft:var(--sage-soft); }
+  .card[data-cat="social"]{ --accent:var(--lavender-deep); --accent-mid:var(--lavender); --accent-soft:var(--lavender-soft); }
+
+  .card-tape{
+    position:absolute; top:-8px; left:26px; width:64px; height:22px; background:var(--accent-mid);
+    opacity:0.75; transform:rotate(-4deg); border-radius:2px;
+  }
+  .card-banner{ background:var(--accent-soft); padding:22px 24px 16px; border-bottom:2px solid var(--ink); display:flex; justify-content:space-between; gap:14px; }
+  .card-icon-badge{
+    width:56px; height:56px; border-radius:50%; background:var(--paper); border:2px solid var(--ink);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--accent);
+    transition:transform .3s ease;
+  }
+  .card:hover .card-icon-badge{ transform:rotate(-8deg) scale(1.06); }
+  .card-icon-badge svg{ width:32px; height:32px; }
+  .card-heading{ flex:1; }
+  .client{ font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:600; color:var(--accent); display:block; margin-bottom:6px; }
+  .card h3{ font-size:1.22rem; line-height:1.25; }
+  .card-body{ padding:18px 24px 24px; display:flex; flex-direction:column; gap:14px; flex:1; }
+  .date{ font-size:0.76rem; color:var(--ink-faint); font-weight:600; }
+  .card p.summary{ font-size:0.95rem; color:var(--ink); opacity:0.88; margin:0; }
+  .card .tag-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  .tag{
+    font-size:0.72rem; font-weight:600; padding:5px 12px; border-radius:100px;
+    background:var(--accent-soft); color:var(--accent); border:1.5px solid var(--accent-mid);
+  }
+  .swatch-dots{ display:flex; gap:6px; margin-top:2px; }
+  .swatch-dots span{ width:14px; height:14px; border-radius:50%; display:inline-block; border:1.5px solid rgba(62,53,82,0.25); }
+  .card-expand-btn{
+    align-self:flex-start; font-family:'Caveat', cursive; font-size:1.2rem; font-weight:600; color:var(--accent);
+    background:none; border:none; cursor:pointer; padding:0; margin-top:auto;
+  }
+  .card-expand-btn:hover{ text-decoration:underline; }
+  .card-detail{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .card.expanded .card-detail{ max-height:420px; }
+  .card-detail-inner{ padding-top:12px; border-top:2px dashed var(--accent-mid); margin-top:6px; display:flex; flex-direction:column; gap:10px; }
+  .card-detail-inner .row{ font-size:0.92rem; }
+  .card-detail-inner b{ font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); display:block; margin-bottom:3px; font-weight:700; }
+
+  .more-note{
+    margin-top:36px; font-family:'Caveat', cursive; font-size:1.25rem; color:var(--ink); transform:rotate(-0.6deg);
+    max-width:640px; background:var(--butter); display:inline-block; padding:14px 22px; border-radius:14px 4px 14px 4px;
+    border:2px solid var(--ink); box-shadow:3px 4px 0 rgba(62,53,82,0.15);
+  }
+
+  /* ---------- TOOLKIT ---------- */
+  .toolkit .section-tag{ color:var(--sage-deep); }
+  .toolkit-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .toolkit-card{
+    border:2px solid var(--ink); border-radius:16px 16px 16px 4px; padding:24px; background:var(--paper);
+    box-shadow:3px 4px 0 rgba(62,53,82,0.13); transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .toolkit-card:hover{ transform:translateY(-4px); box-shadow:4px 7px 0 rgba(62,53,82,0.18); }
+  .toolkit-icon{ width:38px; height:38px; color:var(--sage-deep); margin-bottom:10px; }
+  .toolkit-card:nth-child(2) .toolkit-icon{ color:var(--pink-deep); }
+  .toolkit-card:nth-child(3) .toolkit-icon{ color:var(--lavender-deep); }
+  .toolkit-card:nth-child(4) .toolkit-icon{ color:var(--butter-deep); }
+  .toolkit-card:nth-child(5) .toolkit-icon{ color:var(--pink-deep); }
+  .toolkit-card:nth-child(6) .toolkit-icon{ color:var(--lavender-deep); }
+  .toolkit-card h4{ font-size:1.05rem; margin-bottom:6px; }
+  .toolkit-card p.desc{ font-size:0.86rem; color:var(--ink-soft); margin-bottom:16px; }
+  .pill-list{ display:flex; flex-wrap:wrap; gap:8px; }
+  .pill{
+    font-size:0.78rem; padding:6px 13px; border-radius:8px; background:var(--cream-deep);
+    border:1.5px solid var(--line); transition:transform .2s ease;
+  }
+  .pill:nth-child(odd){ transform:rotate(-1.2deg); }
+  .pill:nth-child(even){ transform:rotate(1.2deg); }
+  .pill:hover{ transform:translateY(-2px) rotate(0deg); background:var(--butter); }
+
+  /* ---------- RECOGNITION ---------- */
+  .recognition .section-tag{ color:var(--butter-deep); }
+  .rec-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .rec-item{
+    background:var(--paper); padding:22px 24px; border:2px dashed var(--ink);
+    border-radius:14px; position:relative; transition:transform .25s ease;
+  }
+  .rec-item:hover{ transform:translateY(-3px) rotate(-0.4deg); }
+  .rec-item-top{ display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+  .rec-icon{ width:30px; height:30px; color:var(--butter-deep); flex-shrink:0; }
+  .rec-item .rec-year{ font-family:'Caveat',cursive; font-size:1.2rem; font-weight:700; color:var(--pink-deep); }
+  .rec-item h4{ font-size:1rem; margin:2px 0 6px; }
+  .rec-item p{ font-size:0.9rem; color:var(--ink-soft); margin:0; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ text-align:left; }
+  .contact h2{ font-size:clamp(2rem,5vw,3.2rem); max-width:760px; }
+  .contact-links{ display:flex; gap:16px; flex-wrap:wrap; margin-top:34px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:100px;
+    text-decoration:none; font-size:0.92rem; font-weight:600; transition:.2s; border:2px solid var(--ink);
+  }
+  .btn-primary{ background:var(--pink); box-shadow:3px 4px 0 var(--ink); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:4px 6px 0 var(--ink); }
+  .btn-outline{ background:var(--paper); }
+  .btn-outline:hover{ background:var(--lavender-soft); }
+
+  footer{ padding:36px 0 50px; }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:0.82rem; color:var(--ink-soft); }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-art{ order:-1; max-width:260px; margin:0 auto; }
+    .cards{ grid-template-columns:1fr; }
+    .toolkit-grid{ grid-template-columns:1fr 1fr; }
+    .rec-grid{ grid-template-columns:1fr; }
+    .nav-links{ display:none; }
+  }
+  @media (max-width:560px){
+    .toolkit-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ transition:none; opacity:1; transform:none; }
+    .scroll-cue svg{ animation:none; }
+  }
+
+  :focus-visible{ outline:3px solid var(--pink-deep); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">Jivika Jain</div>
+    <ul class="nav-links">
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#toolkit">Toolkit</a></li>
+      <li><a href="#recognition">Journey</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:jivikajain90@gmail.com">Say hello</a>
+  </div>
+</header>
+
+<section class="hero band-cream">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">hi, <span class="script">I'm</span></span>
+      <h1>Jivika Jain</h1>
+      <p class="role">A marketing strategist based in Sydney. I look for the patterns in the data that matter, and turn them into strategy that fits the brand DNA.</p>
+      <div class="scroll-cue" aria-hidden="true">
+        <svg viewBox="0 0 26 40" fill="none"><path d="M13 2 L13 34" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 7"/><path d="M4 26 L13 36 L22 26" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+    </div>
+    <div class="hero-art reveal in">
+      <svg viewBox="0 0 240 220" width="100%" height="100%">
+        <g transform="rotate(-4 90 110)">
+          <rect x="20" y="24" width="130" height="168" rx="10" fill="var(--lavender-soft)" stroke="var(--ink)" stroke-width="3"/>
+          <line x1="36" y1="52" x2="120" y2="52" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" opacity="0.5"/>
+          <line x1="36" y1="66" x2="134" y2="66" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" opacity="0.5"/>
+          <line x1="36" y1="80" x2="100" y2="80" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round" opacity="0.5"/>
+          <path d="M36 150 L58 118 L76 138 L100 100 L124 120" fill="none" stroke="var(--pink-deep)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="100" r="4" fill="var(--pink-deep)"/>
+        </g>
+        <g transform="rotate(9 178 66)">
+          <rect x="140" y="30" width="72" height="72" rx="8" fill="var(--pink-soft)" stroke="var(--ink)" stroke-width="3"/>
+          <rect x="152" y="72" width="10" height="20" fill="var(--sage-deep)"/>
+          <rect x="167" y="60" width="10" height="32" fill="var(--pink-deep)"/>
+          <rect x="182" y="48" width="10" height="44" fill="var(--lavender-deep)"/>
+        </g>
+        <g transform="translate(24 168)">
+          <path d="M0 34 C0 44 8 50 18 50 C28 50 36 44 36 34 L36 16 L0 16 Z" fill="var(--sage-soft)" stroke="var(--ink)" stroke-width="3"/>
+          <path d="M2 16 L34 16" stroke="var(--ink)" stroke-width="3"/>
+          <path d="M36 22 C46 22 46 34 36 34" fill="none" stroke="var(--ink)" stroke-width="3"/>
+          <path d="M10 10 C8 4 14 2 12 -4" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M20 10 C18 4 24 2 22 -4" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+        <path d="M206 150 L212 158 L220 150 L212 142 Z" fill="var(--butter)" stroke="var(--ink)" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--lavender-soft)"/></svg>
+
+<section class="approach band-lavender" id="approach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label section-tag">How I Work</span>
+      <h2>Three principles behind every project.</h2>
+    </div>
+    <div class="tabs reveal">
+      <div class="tab open">
+        <div class="tab-head" onclick="toggleTab(this)">
+          <span class="tab-index">i.</span>
+          <span class="tab-title">Challenge assumptions with data.</span>
+          <span class="tab-plus">+</span>
+        </div>
+        <div class="tab-body">
+          <div class="tab-body-inner">I begin by finding the metrics that don't fit the narrative, using them to uncover the real drivers behind customer and business outcomes.</div>
+        </div>
+      </div>
+      <div class="tab">
+        <div class="tab-head" onclick="toggleTab(this)">
+          <span class="tab-index">ii.</span>
+          <span class="tab-title">Connect insight to strategy.</span>
+          <span class="tab-plus">+</span>
+        </div>
+        <div class="tab-body">
+          <div class="tab-body-inner">I synthesise research, analytics, and market context into recommendations that strengthen brand positioning and support commercial objectives.</div>
+        </div>
+      </div>
+      <div class="tab">
+        <div class="tab-head" onclick="toggleTab(this)">
+          <span class="tab-index">iii.</span>
+          <span class="tab-title">Communicate for decision-making.</span>
+          <span class="tab-plus">+</span>
+        </div>
+        <div class="tab-body">
+          <div class="tab-body-inner">I present findings through clear reports and dashboards that make complex analysis easy to understand, discuss, and act on.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="var(--cream)"/></svg>
+
+<section class="work band-cream" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label section-tag">Selected Work</span>
+      <h2>Strategy, made visible.</h2>
+      <p>A mix of client, academic and independent projects. Open a card for the full case — challenge, strategy, result.</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">All work</button>
+      <button class="filter-btn" data-filter="brand">Brand Strategy</button>
+      <button class="filter-btn" data-filter="data">Data &amp; Insight</button>
+      <button class="filter-btn" data-filter="social">Social Impact</button>
+    </div>
+    <p class="swatch-note reveal">psst — the swatches on each card are pulled from that brand's real palette, not a template.</p>
+
+    <div class="cards reveal" id="cardGrid">
+
+      <div class="card" data-cat="brand">
+        <div class="card-tape"></div>
+        <div class="card-banner">
+          <div class="card-heading">
+            <span class="client">WPP Next Gen Program</span>
+            <h3>Rebuilding Nestlé for a Gen Z audience</h3>
+          </div>
+          <div class="card-icon-badge">
+            <svg viewBox="0 0 100 100" fill="none"><circle cx="38" cy="48" r="22" stroke="currentColor" stroke-width="3.6"/><circle cx="62" cy="48" r="22" stroke="currentColor" stroke-width="3.6"/><circle cx="50" cy="48" r="4" fill="currentColor"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="date">Nov 2025</span>
+          <p class="summary">A brand strategy deck unifying Nestlé's sister brands under one identity for a younger audience — presented directly to Nestlé's Brand Manager.</p>
+          <div class="swatch-dots"><span style="background:#8C2E2E"></span><span style="background:#3B2A21"></span><span style="background:#E8C9A8"></span></div>
+          <div class="tag-row"><span class="tag">brand architecture</span><span class="tag">gen z</span></div>
+          <button class="card-expand-btn" onclick="toggleCard(this)">→ open case</button>
+          <div class="card-detail"><div class="card-detail-inner">
+            <div class="row"><b>Challenge</b>Nestlé's sub-brands felt disconnected to Gen Z shoppers, who related to individual products but not the parent brand.</div>
+            <div class="row"><b>Strategy</b>Proposed a unifying identity system and community-first content approach, plus a physical "experience store" concept to make the house of brands tangible.</div>
+            <div class="row"><b>Result</b>Presented to Nestlé's Brand Manager, who commended the work directly.</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="card" data-cat="brand">
+        <div class="card-tape"></div>
+        <div class="card-banner">
+          <div class="card-heading">
+            <span class="client">New Product Development, USYD</span>
+            <h3>NOVO Shoes: the case for detachable heels</h3>
+          </div>
+          <div class="card-icon-badge">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M20 65 C20 50 30 40 45 40 C55 40 60 45 65 45 C75 45 80 52 80 60 L80 70 C80 74 76 76 70 76 L28 76 C22 76 20 72 20 65 Z" stroke="currentColor" stroke-width="3.6" stroke-linejoin="round"/><path d="M65 45 L65 62" stroke="currentColor" stroke-width="3" stroke-dasharray="3 4"/><path d="M70 62 L82 62" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="date">Mar–Jun 2026</span>
+          <p class="summary">A go-to-market strategy for a new product line, built around 2026's "Fiercely Unfiltered" consumer trend and Australian women who want authenticity.</p>
+          <div class="swatch-dots"><span style="background:#2C4E7C"></span><span style="background:#E7B7A3"></span><span style="background:#F3ECD9"></span></div>
+          <div class="tag-row"><span class="tag">product strategy</span><span class="tag">trend research</span></div>
+          <button class="card-expand-btn" onclick="toggleCard(this)">→ open case</button>
+          <div class="card-detail"><div class="card-detail-inner">
+            <div class="row"><b>Challenge</b>Design a viable new product line for NOVO Shoes that felt distinct in a crowded, price-sensitive footwear market.</div>
+            <div class="row"><b>Strategy</b>Positioned "detachable heels" around affordability and everyday authenticity, tying the launch narrative to the "Fiercely Unfiltered" trend report.</div>
+            <div class="row"><b>Result</b>Recognised by the unit coordinator and tutor as a standout project among all groups.</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="card" data-cat="data">
+        <div class="card-tape"></div>
+        <div class="card-banner">
+          <div class="card-heading">
+            <span class="client">Data Visualisation, USYD</span>
+            <h3>A dashboard for the "should I move to Australia?" decision</h3>
+          </div>
+          <div class="card-icon-badge">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M25 55 C22 45 30 35 42 33 C50 31 58 34 63 40 C70 42 76 48 74 56 C78 60 76 68 68 68 C64 74 54 76 46 72 C36 74 28 68 27 60 C22 60 22 56 25 55 Z" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><circle cx="55" cy="50" r="2.6" fill="currentColor"/><path d="M55 50 L55 36" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><g stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M18 86 L18 76"/><path d="M28 86 L28 70"/><path d="M38 86 L38 80"/></g></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="date">Aug–Oct 2025</span>
+          <p class="summary">A live, GitHub-hosted dashboard, coded in Python, turning Australian Government employment data into a clear tool for international students.</p>
+          <div class="swatch-dots"><span style="background:#1F8A70"></span><span style="background:#F2B705"></span><span style="background:#14171F"></span></div>
+          <div class="tag-row"><span class="tag">python</span><span class="tag">live data</span></div>
+          <button class="card-expand-btn" onclick="toggleCard(this)">→ open case</button>
+          <div class="card-detail"><div class="card-detail-inner">
+            <div class="row"><b>Challenge</b>International students had no single, honest source for post-study employability outlook by industry.</div>
+            <div class="row"><b>Strategy</b>Built and coded a dashboard pulling live data from Australian Government sources, with industry outlooks a prospective student could actually act on.</div>
+            <div class="row"><b>Result</b>A live, publicly hosted dashboard that transforms complex government labour market data into an accessible decision-making tool for prospective international students.</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="card" data-cat="data">
+        <div class="card-tape"></div>
+        <div class="card-banner">
+          <div class="card-heading">
+            <span class="client">Management Consulting, USYD</span>
+            <h3>Fifth Frame: when a merger meets culture clash</h3>
+          </div>
+          <div class="card-icon-badge">
+            <svg viewBox="0 0 100 100" fill="none"><rect x="16" y="30" width="30" height="30" rx="6" stroke="currentColor" stroke-width="3.4"/><rect x="52" y="42" width="30" height="30" rx="6" stroke="currentColor" stroke-width="3.4"/><path d="M46 45 L52 45" stroke="currentColor" stroke-width="3" stroke-dasharray="2 4"/><path d="M38 62 C42 68 50 70 55 68" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="date">Apr–May 2026</span>
+          <p class="summary">A solutions roadmap for a real M&amp;A case study centred on post-merger culture conflict — shortlisted to present directly to the client.</p>
+          <div class="swatch-dots"><span style="background:#3B3F45"></span><span style="background:#8C8577"></span><span style="background:#1F8A70"></span></div>
+          <div class="tag-row"><span class="tag">consulting</span><span class="tag">stakeholder strategy</span></div>
+          <button class="card-expand-btn" onclick="toggleCard(this)">→ open case</button>
+          <div class="card-detail"><div class="card-detail-inner">
+            <div class="row"><b>Challenge</b>Two merging organisations with incompatible cultures, risking talent loss and stalled integration.</div>
+            <div class="row"><b>Strategy</b>Developed a phased plan of action addressing culture alignment alongside commercial priorities.</div>
+            <div class="row"><b>Result</b>One of the projects shortlisted from the unit to present directly to the client.</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="card" data-cat="social">
+        <div class="card-tape"></div>
+        <div class="card-banner">
+          <div class="card-heading">
+            <span class="client">Marketing for Social Change, USYD</span>
+            <h3>Guide Dogs Australia: "Same Job, Different Timelines"</h3>
+          </div>
+          <div class="card-icon-badge">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M35 78 C30 62 32 46 42 41 C40 34 44 28 50 30 C54 24 62 26 62 33 C68 33 70 41 66 46 C72 51 70 61 64 63 L64 78" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="55" cy="38" r="2.2" fill="currentColor"/><path d="M40 78 L40 67 M60 78 L60 68" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M44 52 L60 50" stroke="currentColor" stroke-width="2.6" stroke-dasharray="2 3"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="date">Mar 2026</span>
+          <p class="summary">A social marketing campaign built with Guide Dogs Australia to raise awareness of Rule 26 and push for inclusive recruitment of people with low vision.</p>
+          <div class="swatch-dots"><span style="background:#D8A73D"></span><span style="background:#14171F"></span><span style="background:#F3ECD9"></span></div>
+          <div class="tag-row"><span class="tag">social marketing</span><span class="tag">accessibility</span></div>
+          <button class="card-expand-btn" onclick="toggleCard(this)">→ open case</button>
+          <div class="card-detail"><div class="card-detail-inner">
+            <div class="row"><b>Challenge</b>Employers were unaware of Rule 26 and defaulted away from hiring candidates with low vision.</div>
+            <div class="row"><b>Strategy</b>Framed the campaign around equal capability on different timelines — reframing accommodation as normal, not exceptional.</div>
+            <div class="row"><b>Result</b>The only project selected by the teaching team to be submitted to Guide Dogs Australia for client review.</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="card" data-cat="social">
+        <div class="card-tape"></div>
+        <div class="card-banner">
+          <div class="card-heading">
+            <span class="client">Marketing for Social Change, USYD — Individual</span>
+            <h3>"Words That Stick": naming BDD before it's diagnosed</h3>
+          </div>
+          <div class="card-icon-badge">
+            <svg viewBox="0 0 100 100" fill="none"><path d="M25 20 L68 20 L68 55 L55 68 L25 68 Z" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"/><path d="M55 68 L55 55 L68 55 Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M38 40 C38 36 43 36 43 40 C43 36 48 36 48 40 C48 44 43 47 43 47 C43 47 38 44 38 40 Z" fill="currentColor" stroke="none"/></svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <span class="date">Mar 2026</span>
+          <p class="summary">A social marketing campaign addressing undiagnosed Body Dysmorphic Disorder among teenage girls in Australia, built to reach a group that suffers quietly.</p>
+          <div class="swatch-dots"><span style="background:#B76E88"></span><span style="background:#E7B7A3"></span><span style="background:#3B2A21"></span></div>
+          <div class="tag-row"><span class="tag">social marketing</span><span class="tag">youth mental health</span></div>
+          <button class="card-expand-btn" onclick="toggleCard(this)">→ open case</button>
+          <div class="card-detail"><div class="card-detail-inner">
+            <div class="row"><b>Challenge</b>BDD in teen girls is widespread and under-named, so it rarely gets addressed before it's diagnosed.</div>
+            <div class="row"><b>Strategy</b>Positioned schools as the primary intervention point, combining peer-led messaging with community support to encourage early recognition of BDD and lower barriers to help-seeking.</div>
+            <div class="row"><b>Result</b>Independently led the project from insight generation to campaign strategy and creative execution.</div>
+          </div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="more-note reveal">a few more — Kearney National Case Competition, an innovation commercialisation plan, and a Transport for NSW road-safety campaign — happy to walk through these on a call.</div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--sage-soft)"/></svg>
+
+<section class="toolkit band-sage" id="toolkit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label section-tag">Toolkit</span>
+      <h2>The capabilities behind the strategy</h2>
+    </div>
+    <div class="toolkit-grid reveal">
+      <div class="toolkit-card">
+        <svg class="toolkit-icon" viewBox="0 0 100 100" fill="none"><circle cx="42" cy="42" r="20" stroke="currentColor" stroke-width="4"/><path d="M57 57 L74 74" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+        <h4>Data &amp; Insight</h4>
+        <p class="desc">Turning data into evidence.</p>
+        <div class="pill-list">
+          <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">Tableau</span><span class="pill">Power BI</span><span class="pill">SPSS</span><span class="pill">Excel</span>
+        </div>
+      </div>
+      <div class="toolkit-card">
+        <svg class="toolkit-icon" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="26" stroke="currentColor" stroke-width="3.6"/><path d="M50 34 L58 50 L50 66 L42 50 Z" fill="currentColor" stroke="none"/></svg>
+        <h4>Brand &amp; Strategy</h4>
+        <p class="desc">Turning evidence into strategic direction.</p>
+        <div class="pill-list">
+          <span class="pill">Brand positioning</span><span class="pill">Brand architecture</span><span class="pill">Go-to-market strategy</span><span class="pill">Social marketing</span><span class="pill">Consumer insights &amp; market research</span>
+        </div>
+      </div>
+      <div class="toolkit-card">
+        <svg class="toolkit-icon" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="24" stroke="currentColor" stroke-width="3.4"/><circle cx="50" cy="50" r="13" stroke="currentColor" stroke-width="3"/><circle cx="50" cy="50" r="4" fill="currentColor" stroke="none"/></svg>
+        <h4>Research &amp; Measurement</h4>
+        <p class="desc">Measuring what matters.</p>
+        <div class="pill-list">
+          <span class="pill">Google Analytics 4 (GA4)</span><span class="pill">Adobe Analytics</span><span class="pill">SEMrush</span><span class="pill">Google Trends</span><span class="pill">Google Keyword Planner</span>
+        </div>
+      </div>
+      <div class="toolkit-card">
+        <svg class="toolkit-icon" viewBox="0 0 100 100" fill="none"><path d="M50 20 C30 20 18 34 18 50 C18 64 30 74 44 72 C42 68 44 64 48 64 C60 64 68 56 68 46 C82 46 82 20 50 20 Z" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"/><circle cx="34" cy="44" r="3" fill="currentColor" stroke="none"/><circle cx="48" cy="34" r="3" fill="currentColor" stroke="none"/><circle cx="60" cy="42" r="3" fill="currentColor" stroke="none"/></svg>
+        <h4>Visualisation &amp; Communication</h4>
+        <p class="desc">Making complex ideas easy to understand.</p>
+        <div class="pill-list">
+          <span class="pill">Figma</span><span class="pill">Canva</span><span class="pill">WordPress</span><span class="pill">Miro</span>
+        </div>
+      </div>
+      <div class="toolkit-card">
+        <svg class="toolkit-icon" viewBox="0 0 100 100" fill="none"><path d="M20 46 L45 36 L45 62 L20 54 Z" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"/><path d="M45 36 L72 26 L72 74 L45 62" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round"/><path d="M28 54 L32 68" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg>
+        <h4>Channel Execution</h4>
+        <p class="desc">Putting strategy into market.</p>
+        <div class="pill-list">
+          <span class="pill">Meta Ads</span><span class="pill">Google Ads</span><span class="pill">LinkedIn Ads</span><span class="pill">DV360</span><span class="pill">AppsFlyer</span>
+        </div>
+      </div>
+      <div class="toolkit-card">
+        <svg class="toolkit-icon" viewBox="0 0 100 100" fill="none"><path d="M50 20 L56 42 L78 48 L56 54 L50 76 L44 54 L22 48 L44 42 Z" fill="currentColor" stroke="none"/></svg>
+        <h4>AI-Assisted Workflow</h4>
+        <p class="desc">Accelerating research, synthesis, and communication.</p>
+        <div class="pill-list">
+          <span class="pill">ChatGPT</span><span class="pill">Claude</span><span class="pill">GitHub Copilot</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#FBEFCB"/></svg>
+
+<section class="recognition band-butter" id="recognition">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label section-tag">Recognition</span>
+      <h2>A few milestones that shaped my journey.</h2>
+    </div>
+    <div class="rec-grid reveal">
+      <div class="rec-item">
+        <div class="rec-item-top">
+          <svg class="rec-icon" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="currentColor" stroke-width="3.4"/><path d="M40 52 L32 78 L50 68 L68 78 L60 52" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+          <span class="rec-year">2025</span>
+        </div>
+        <h4>Landor Next Gen</h4>
+        <p>Selected for a competitive 5-week global brand strategy programme, alongside participants from 70+ countries.</p>
+      </div>
+      <div class="rec-item">
+        <div class="rec-item-top">
+          <svg class="rec-icon" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="currentColor" stroke-width="3.4"/><path d="M40 52 L32 78 L50 68 L68 78 L60 52" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+          <span class="rec-year">2025</span>
+        </div>
+        <h4>Kearney National Case Competition</h4>
+        <p>Competed as a 4-person team on profitability and market differentiation for a meal-planning company.</p>
+      </div>
+      <div class="rec-item">
+        <div class="rec-item-top">
+          <svg class="rec-icon" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="currentColor" stroke-width="3.4"/><path d="M40 52 L32 78 L50 68 L68 78 L60 52" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+          <span class="rec-year">2024</span>
+        </div>
+        <h4>GroupM APAC Rising Star (Nominated)</h4>
+        <p>Recognised for outstanding performance across the Paid Digital Media India team.</p>
+      </div>
+      <div class="rec-item">
+        <div class="rec-item-top">
+          <svg class="rec-icon" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="38" r="18" stroke="currentColor" stroke-width="3.4"/><path d="M40 52 L32 78 L50 68 L68 78 L60 52" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>
+          <span class="rec-year">2024</span>
+        </div>
+        <h4>President's Recognition, GroupM India</h4>
+        <p>For data-driven optimisation strategies that lifted campaign performance 150% and ad revenue 80%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="var(--pink-soft)"/></svg>
+
+<section class="contact band-pink" id="contact">
+  <div class="wrap reveal">
+    <span class="label section-tag" style="color:var(--pink-deep);">Let's talk</span>
+    <h2>Every good strategy starts with a question. Let's explore yours.</h2>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:jivikajain90@gmail.com">jivikajain90@gmail.com</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/jivika-jain-2001/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-outline" href="tel:+61410123983">+61 410 123 983</a>
+    </div>
+  </div>
+</section>
+
+<footer class="band-cream">
+  <div class="wrap footer-inner">
+    <span>Jivika Jain — Sydney, Australia</span>
+    <span>Student Visa (500), part-time · Graduate Visa (485) eligible 2027</span>
+  </div>
+</footer>
+
+<script>
+  function toggleTab(headEl){
+    const tab = headEl.parentElement;
+    const wasOpen = tab.classList.contains('open');
+    tab.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('open'));
+    if(!wasOpen) tab.classList.add('open');
+  }
+
+  function toggleCard(btn){
+    const card = btn.closest('.card');
+    card.classList.toggle('expanded');
+    btn.textContent = card.classList.contains('expanded') ? '← close case' : '→ open case';
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('#cardGrid .card').forEach(card=>{
+        card.classList.toggle('hide', f !== 'all' && card.dataset.cat !== f);
+      });
+    });
+  });
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:0.12 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const fill = document.getElementById('progressFill');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (scrolled / max) * 100 : 0;
+    fill.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+</script>
+
+</body>
+</html>
