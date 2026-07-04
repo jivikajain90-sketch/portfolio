@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const works = [
   {
@@ -111,14 +112,14 @@ export default function Home() {
         </Button>
       </nav>
 
-      <main className="pt-32 pb-20">
+      <main className="pb-20">
         {/* HERO SECTION */}
-        <section className="px-6 md:px-12 lg:px-24 pb-24">
+        <section className="min-h-[85vh] flex items-center px-6 md:px-12 lg:px-24 pt-32 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="max-w-4xl"
+            className="max-w-4xl mx-auto w-full"
           >
             <div className="flex items-center gap-3 mb-6">
               <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-pastel-blue rotate-[-8deg]">
@@ -153,10 +154,10 @@ export default function Home() {
         <section id="approach" className="py-24 px-6 md:px-12 lg:px-24 bg-pastel-yellow/25 text-foreground">
           <div className="max-w-6xl mx-auto">
             <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-serif font-black tracking-tight mb-4">
+              <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">
                 How I Work
               </h2>
-              <p className="text-base text-muted-foreground max-w-xs">
+              <p className="text-lg text-muted-foreground max-w-xs">
                 Three principles behind every project.
               </p>
             </div>
@@ -176,8 +177,8 @@ export default function Home() {
                     className="bg-background border border-foreground/10 p-8 flex-1 flex flex-col"
                   >
                     <div className="font-serif text-2xl font-bold text-primary mb-4">{item.numeral}</div>
-                    <h3 className="text-xl font-serif font-bold mb-3">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    <h3 className="text-2xl font-serif font-bold mb-3">{item.title}</h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">{item.desc}</p>
                   </motion.div>
                   {i < 2 && (
                     <div className="hidden md:flex items-center justify-center w-16 shrink-0 text-foreground/40">
@@ -240,21 +241,21 @@ export default function Home() {
         {/* TOOLKIT SECTION */}
         <section id="toolkit" className="py-24 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-3">Toolkit</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">Toolkit</h2>
             <p className="text-lg text-foreground/70 mb-16">The capabilities behind the strategy</p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14">
               {[
-                { name: "Data & Insight", desc: "Turning data into evidence.", tools: ["Python", "SQL", "Tableau", "Power BI", "SPSS", "Excel"] },
+                { name: "Data & Insight", desc: "Turning data into evidence.", tools: ["Python", "SQL", "Tableau", "Power BI", "SPSS", "Excel", "GitHub"] },
                 { name: "Brand & Strategy", desc: "Turning evidence into strategic direction.", tools: ["Brand positioning", "Brand architecture", "Go-to-market strategy", "Social marketing", "Consumer insights & market research"] },
                 { name: "Research & Measurement", desc: "Measuring what matters.", tools: ["Google Analytics 4 (GA4)", "Adobe Analytics", "SEMrush", "Google Trends", "Google Keyword Planner"] },
                 { name: "Visualisation & Communication", desc: "Making complex ideas easy to understand.", tools: ["Figma", "Canva", "WordPress", "Miro"] },
                 { name: "Channel Execution", desc: "Putting strategy into market.", tools: ["Meta Ads", "Google Ads", "LinkedIn Ads", "DV360", "AppsFlyer"] },
-                { name: "AI-Assisted Workflow", desc: "Accelerating research, synthesis, and communication.", tools: ["ChatGPT", "Claude", "GitHub Copilot"] },
+                { name: "AI-Assisted Workflow", desc: "Accelerating research, synthesis, and communication.", tools: ["ChatGPT", "Claude", "Copilot"] },
               ].map((category, i) => (
                 <div key={i} className="flex flex-col">
-                  <h3 className="text-lg font-serif font-bold mb-2">{category.name}</h3>
-                  <p className="text-sm text-foreground/60 mb-5">{category.desc}</p>
+                  <h3 className="text-xl font-serif font-bold mb-2">{category.name}</h3>
+                  <p className="text-base text-foreground/60 mb-5">{category.desc}</p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {category.tools.map((tool) => (
                       <span key={tool} className="text-xs px-3 py-1.5 bg-background/50 border border-foreground/15 font-medium">
@@ -331,66 +332,97 @@ export default function Home() {
 }
 
 function WorkCard({ work, index }: { work: any; index: number }) {
-  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
   const categoryColor = categoryColors[work.category] ?? "bg-pastel-pink";
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.04 }}
-      className="bg-background text-foreground p-6 flex flex-col h-fit"
-    >
-      <div className="flex items-center justify-between gap-2 mb-4">
-        <div className="flex gap-1.5">
-          {work.swatches.map((c: string, i: number) => (
-            <span key={i} className="w-3.5 h-3.5 rounded-full border border-foreground/10" style={{ backgroundColor: c }} />
+    <>
+      <motion.div
+        layout
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4, delay: index * 0.04 }}
+        className="bg-background text-foreground p-6 flex flex-col h-fit"
+      >
+        <div className="flex items-center justify-between gap-2 mb-4">
+          <div className="flex gap-1.5">
+            {work.swatches.map((c: string, i: number) => (
+              <span key={i} className="w-3.5 h-3.5 rounded-full border border-foreground/10" style={{ backgroundColor: c }} />
+            ))}
+          </div>
+          <span className={`inline-block px-3 py-1 ${categoryColor} text-foreground text-[10px] font-bold uppercase tracking-widest`}>
+            {work.category}
+          </span>
+        </div>
+
+        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">{work.context} — {work.date}</p>
+        <h3 className="text-2xl font-serif font-bold leading-tight mb-3">{work.title}</h3>
+
+        <p className="text-base leading-relaxed text-foreground/80 mb-3">
+          {work.summary}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-3">
+          {work.tags.map((tag: string) => (
+            <span key={tag} className="text-xs text-foreground/50">#{tag}</span>
           ))}
         </div>
-        <span className={`inline-block px-3 py-1 ${categoryColor} text-foreground text-[10px] font-bold uppercase tracking-widest`}>
-          {work.category}
-        </span>
-      </div>
 
-      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">{work.context} — {work.date}</p>
-      <h3 className="text-xl font-serif font-bold leading-tight mb-3">{work.title}</h3>
+        <button
+          onClick={() => setOpen(true)}
+          className="font-bold text-primary hover:underline text-sm text-left mt-auto pt-2"
+        >
+          → open case
+        </button>
+      </motion.div>
 
-      <p className="text-sm leading-relaxed text-foreground/80 mb-3">
-        {work.summary}
-      </p>
-
-      <div className="flex flex-wrap gap-2 mb-3">
-        {work.tags.map((tag: string) => (
-          <span key={tag} className="text-xs text-foreground/50">#{tag}</span>
-        ))}
-      </div>
-
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="font-bold text-primary hover:underline text-sm text-left mt-auto pt-2"
-      >
-        → {expanded ? "close case" : "open case"}
-      </button>
-
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="flex flex-col gap-3 pt-5 text-sm leading-relaxed border-t border-border mt-4">
-              <p><span className="font-bold">Challenge:</span> {work.challenge}</p>
-              <p><span className="font-bold">Strategy:</span> {work.strategy}</p>
-              <p><span className="font-bold">Result:</span> {work.result}</p>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-2xl rounded-none p-0 gap-0 max-h-[85vh] overflow-y-auto">
+          <div className="p-8 md:p-10">
+            <div className="flex items-center justify-between gap-2 mb-6">
+              <div className="flex gap-1.5">
+                {work.swatches.map((c: string, i: number) => (
+                  <span key={i} className="w-4 h-4 rounded-full border border-foreground/10" style={{ backgroundColor: c }} />
+                ))}
+              </div>
+              <span className={`inline-block px-3 py-1 ${categoryColor} text-foreground text-[10px] font-bold uppercase tracking-widest`}>
+                {work.category}
+              </span>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">{work.context} — {work.date}</p>
+            <DialogTitle className="text-3xl md:text-4xl font-serif font-black leading-tight mb-4">
+              {work.title}
+            </DialogTitle>
+
+            <p className="text-lg leading-relaxed text-foreground/80 mb-4">
+              {work.summary}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-8">
+              {work.tags.map((tag: string) => (
+                <span key={tag} className="text-xs text-foreground/50">#{tag}</span>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-6 text-base leading-relaxed border-t border-border pt-8">
+              <div>
+                <p className="font-bold text-primary uppercase tracking-widest text-xs mb-2">Challenge</p>
+                <p>{work.challenge}</p>
+              </div>
+              <div>
+                <p className="font-bold text-primary uppercase tracking-widest text-xs mb-2">Strategy</p>
+                <p>{work.strategy}</p>
+              </div>
+              <div>
+                <p className="font-bold text-primary uppercase tracking-widest text-xs mb-2">Result</p>
+                <p>{work.result}</p>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
