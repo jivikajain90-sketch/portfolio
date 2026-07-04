@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
@@ -310,22 +310,79 @@ export default function Home() {
             </h2>
             <p className="text-lg text-background/70 mb-12">Let's explore yours.</p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg" className="rounded-none bg-pastel-pink text-foreground hover:bg-background hover:text-foreground h-14 px-8 text-sm tracking-widest uppercase font-bold" asChild>
-                <a href="mailto:jivikajain90@gmail.com">jivikajain90@gmail.com</a>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-none border border-background/30 hover:bg-background hover:text-foreground h-14 px-8 text-sm tracking-widest uppercase font-bold" asChild>
-                <a href="https://www.linkedin.com/in/jivika-jain-2001/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight className="ml-2 h-4 w-4" /></a>
-              </Button>
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-8 gap-y-5 mb-4">
+              <a
+                href="mailto:jivikajain90@gmail.com"
+                className="flex items-center gap-2 text-sm md:text-base font-bold tracking-wide hover:text-pastel-pink transition-colors"
+              >
+                <Mail className="h-4 w-4 shrink-0" />
+                jivikajain90@gmail.com
+              </a>
+
+              <span className="hidden sm:block h-4 w-px bg-background/25" />
+
+              <a
+                href="https://www.linkedin.com/in/jivika-jain-2001/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm md:text-base font-bold tracking-wide hover:text-pastel-pink transition-colors"
+              >
+                <Linkedin className="h-4 w-4 shrink-0" />
+                LinkedIn
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+
+              <span className="hidden sm:block h-4 w-px bg-background/25" />
+
+              <a
+                href="tel:+61410123983"
+                className="flex items-center gap-2 text-sm md:text-base font-bold tracking-wide hover:text-pastel-pink transition-colors"
+              >
+                <Phone className="h-4 w-4 shrink-0" />
+                +61 410 123 983
+              </a>
             </div>
-            <p className="mt-10 text-base font-medium opacity-60">+61 410 123 983</p>
           </div>
         </section>
       </main>
 
-      <footer className="py-10 px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-4 font-bold uppercase tracking-widest text-xs border-t border-border bg-background">
-        <div>Jivika Jain — Sydney, Australia</div>
-        <div className="text-center md:text-right text-muted-foreground">Student Visa (500), part-time · Graduate Visa (485) eligible 2027</div>
+      <footer className="px-6 md:px-12 lg:px-24 pt-16 pb-8 bg-background border-t border-border">
+        <div className="flex flex-col md:flex-row justify-between gap-10 pb-10">
+          <div className="max-w-xs">
+            <div className="font-serif font-black text-xl tracking-tighter uppercase mb-3">Jivika Jain.</div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              A marketing strategist based in Sydney, turning data into decisions and decisions into brand strategy.
+            </p>
+          </div>
+
+          <div className="flex gap-16">
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Explore</p>
+              <a href="#approach" className="text-sm font-medium hover:text-primary transition-colors">Approach</a>
+              <a href="#work" className="text-sm font-medium hover:text-primary transition-colors">Work</a>
+              <a href="#toolkit" className="text-sm font-medium hover:text-primary transition-colors">Toolkit</a>
+              <a href="#recognition" className="text-sm font-medium hover:text-primary transition-colors">Journey</a>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Connect</p>
+              <a href="mailto:jivikajain90@gmail.com" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
+                <Mail className="h-3.5 w-3.5" /> Email
+              </a>
+              <a href="https://www.linkedin.com/in/jivika-jain-2001/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
+                <Linkedin className="h-3.5 w-3.5" /> LinkedIn
+              </a>
+              <a href="tel:+61410123983" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
+                <Phone className="h-3.5 w-3.5" /> +61 410 123 983
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+          <div>Jivika Jain — Sydney, Australia</div>
+          <div className="text-center md:text-right">Student Visa (500), part-time · Graduate Visa (485) eligible 2027</div>
+        </div>
       </footer>
     </div>
   );
