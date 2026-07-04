@@ -150,87 +150,90 @@ export default function Home() {
         </section>
 
         {/* APPROACH SECTION */}
-        <section id="approach" className="py-24 px-6 md:px-12 lg:px-24 bg-foreground text-background">
+        <section id="approach" className="py-24 px-6 md:px-12 lg:px-24 bg-pastel-yellow/25 text-foreground">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-12 md:gap-16">
-              <div className="md:col-span-4">
-                <h2 className="text-3xl md:text-4xl font-serif font-black tracking-tight mb-4">
-                  How I Work
-                </h2>
-                <p className="text-base text-muted max-w-xs">
-                  Three principles behind every project.
-                </p>
-              </div>
-              <div className="md:col-span-8 grid gap-0 border-t border-border/30">
-                {[
-                  { numeral: "i.", title: "Challenge assumptions with data.", desc: "I begin by finding the metrics that don't fit the narrative, using them to uncover the real drivers behind customer and business outcomes." },
-                  { numeral: "ii.", title: "Connect insight to strategy.", desc: "I synthesise research, analytics, and market context into recommendations that strengthen brand positioning and support commercial objectives." },
-                  { numeral: "iii.", title: "Communicate for decision-making.", desc: "I present findings through clear reports and dashboards that make complex analysis easy to understand, discuss, and act on." },
-                ].map((item, i) => (
+            <div className="mb-16">
+              <h2 className="text-3xl md:text-4xl font-serif font-black tracking-tight mb-4">
+                How I Work
+              </h2>
+              <p className="text-base text-muted-foreground max-w-xs">
+                Three principles behind every project.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 md:gap-0 items-stretch">
+              {[
+                { numeral: "i.", title: "Challenge assumptions with data.", desc: "I begin by finding the metrics that don't fit the narrative, using them to uncover the real drivers behind customer and business outcomes." },
+                { numeral: "ii.", title: "Connect insight to strategy.", desc: "I synthesise research, analytics, and market context into recommendations that strengthen brand positioning and support commercial objectives." },
+                { numeral: "iii.", title: "Communicate for decision-making.", desc: "I present findings through clear reports and dashboards that make complex analysis easy to understand, discuss, and act on." },
+              ].map((item, i) => (
+                <div key={i} className="flex items-stretch">
                   <motion.div
-                    key={i}
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.08, duration: 0.5 }}
-                    className="py-8 border-b border-border/30 group"
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="bg-background border border-foreground/10 p-8 flex-1 flex flex-col"
                   >
-                    <div className="flex gap-6 items-baseline">
-                      <div className="font-serif text-xl font-bold text-primary shrink-0 w-8">{item.numeral}</div>
-                      <div>
-                        <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                        <p className="text-base text-muted-foreground leading-relaxed max-w-xl">{item.desc}</p>
-                      </div>
-                    </div>
+                    <div className="font-serif text-2xl font-bold text-primary mb-4">{item.numeral}</div>
+                    <h3 className="text-xl font-serif font-bold mb-3">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </motion.div>
-                ))}
-              </div>
+                  {i < 2 && (
+                    <div className="hidden md:flex items-center justify-center w-16 shrink-0 text-foreground/40">
+                      <ArrowRight className="w-6 h-6" />
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* WORK SECTION */}
-        <section id="work" className="py-24 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
-          <div className="mb-6">
-            <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">
-              Selected Work
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Strategy, made visible. A mix of client, academic and independent projects. Open a card for the full case — challenge, strategy, result.
-            </p>
-          </div>
+        <section id="work" className="py-24 px-6 md:px-12 lg:px-24 bg-foreground text-background">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-6">
+              <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">
+                Selected Work
+              </h2>
+              <p className="text-lg text-background/70 max-w-2xl leading-relaxed">
+                Strategy, made visible. A mix of client, academic and independent projects. Open a card for the full case — challenge, strategy, result.
+              </p>
+            </div>
 
-          <div className="flex flex-wrap gap-2 mb-4">
-            {categories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setFilter(c)}
-                className={`px-5 py-2 rounded-none border text-xs font-bold tracking-widest uppercase transition-all ${filter === c ? "bg-foreground border-foreground text-background" : "border-border text-foreground/70 hover:border-foreground hover:text-foreground"}`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-
-          <p className="font-hand text-lg text-foreground/50 mb-12">
-            psst — the swatches on each card are pulled from that brand's real palette, not a template.
-          </p>
-
-          <div className="flex flex-col gap-0 border-t border-border">
-            <AnimatePresence mode="popLayout">
-              {filteredWorks.map((work, idx) => (
-                <WorkCard key={work.id} work={work} index={idx} />
+            <div className="flex flex-wrap gap-2 mb-4">
+              {categories.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setFilter(c)}
+                  className={`px-5 py-2 rounded-none border text-xs font-bold tracking-widest uppercase transition-all ${filter === c ? "bg-background border-background text-foreground" : "border-background/30 text-background/70 hover:border-background hover:text-background"}`}
+                >
+                  {c}
+                </button>
               ))}
-            </AnimatePresence>
-          </div>
+            </div>
 
-          <div className="mt-16 p-10 bg-secondary border border-border">
-            <p className="text-lg font-serif max-w-2xl">
-              a few more — Kearney National Case Competition, an innovation commercialisation plan, and a Transport for NSW road-safety campaign — happy to walk through these on a call.
+            <p className="font-hand text-lg text-background/40 mb-12">
+              psst — the swatches on each card are pulled from that brand's real palette, not a template.
             </p>
-            <a href="mailto:jivikajain90@gmail.com" className="inline-flex items-center gap-2 mt-6 text-sm font-bold uppercase tracking-widest border-b-2 border-foreground hover:text-primary hover:border-primary transition-colors pb-1">
-              Get in touch <ArrowUpRight className="w-4 h-4" />
-            </a>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AnimatePresence mode="popLayout">
+                {filteredWorks.map((work, idx) => (
+                  <WorkCard key={work.id} work={work} index={idx} />
+                ))}
+              </AnimatePresence>
+            </div>
+
+            <div className="mt-10 p-10 bg-background/10 border border-background/20">
+              <p className="text-lg font-serif max-w-2xl">
+                a few more — Kearney National Case Competition, an innovation commercialisation plan, and a Transport for NSW road-safety campaign — happy to walk through these on a call.
+              </p>
+              <a href="mailto:jivikajain90@gmail.com" className="inline-flex items-center gap-2 mt-6 text-sm font-bold uppercase tracking-widest border-b-2 border-background hover:text-primary hover:border-primary transition-colors pb-1">
+                Get in touch <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </section>
 
@@ -266,26 +269,32 @@ export default function Home() {
         </section>
 
         {/* RECOGNITION SECTION */}
-        <section id="recognition" className="py-24 px-6 md:px-12 lg:px-24 max-w-5xl mx-auto">
+        <section id="recognition" className="py-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-3">Recognition</h2>
           <p className="text-lg text-muted-foreground mb-14">A few milestones that shaped my journey.</p>
 
-          <div className="grid gap-0 border-t border-foreground/20">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
-              { year: "2025", title: "Landor Next Gen", desc: "Selected for a competitive 5-week global brand strategy programme, alongside participants from 70+ countries." },
-              { year: "2025", title: "Kearney National Case Competition", desc: "Competed as a 4-person team on profitability and market differentiation for a meal-planning company." },
-              { year: "2024", title: "GroupM APAC Rising Star (Nominated)", desc: "Recognised for outstanding performance across the Paid Digital Media India team." },
-              { year: "2024", title: "President's Recognition, GroupM India", desc: "For data-driven optimisation strategies that lifted campaign performance 150% and ad revenue 80%." },
+              { year: "2025", title: "Landor Next Gen", desc: "Selected for a competitive 5-week global brand strategy programme, alongside participants from 70+ countries.", color: "bg-pastel-blue" },
+              { year: "2025", title: "Kearney National Case Competition", desc: "Competed as a 4-person team on profitability and market differentiation for a meal-planning company.", color: "bg-pastel-green" },
+              { year: "2024", title: "GroupM APAC Rising Star (Nominated)", desc: "Recognised for outstanding performance across the Paid Digital Media India team.", color: "bg-pastel-yellow" },
+              { year: "2024", title: "President's Recognition, GroupM India", desc: "For data-driven optimisation strategies that lifted campaign performance 150% and ad revenue 80%.", color: "bg-pastel-lavender" },
             ].map((item, i) => (
-              <div key={i} className="py-7 border-b border-border flex flex-col md:flex-row md:items-baseline gap-3 md:gap-10 hover:bg-secondary/40 transition-colors px-3 -mx-3">
-                <div className="w-20 shrink-0">
-                  <span className="font-hand text-2xl text-foreground/60">{item.year}</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-serif font-bold mb-1.5">{item.title}</h3>
-                  <p className="text-base text-muted-foreground max-w-2xl">{item.desc}</p>
-                </div>
-              </div>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="relative border border-border p-8 overflow-hidden"
+              >
+                <div className={`absolute top-0 left-0 w-2 h-full ${item.color}`} />
+                <span className="font-serif text-6xl md:text-7xl font-black text-foreground/10 leading-none block mb-2">
+                  {item.year}
+                </span>
+                <h3 className="text-2xl font-serif font-bold mb-3 -mt-8 relative">{item.title}</h3>
+                <p className="text-base text-muted-foreground max-w-md">{item.desc}</p>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -332,58 +341,56 @@ function WorkCard({ work, index }: { work: any; index: number }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4, delay: index * 0.04 }}
-      className="border-b border-border py-10"
+      className="bg-background text-foreground p-6 flex flex-col h-fit"
     >
-      <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
-        <div className="flex md:flex-col gap-2 md:w-40 shrink-0">
-          <div className="flex gap-1.5">
-            {work.swatches.map((c: string, i: number) => (
-              <span key={i} className="w-4 h-4 rounded-full border border-foreground/10" style={{ backgroundColor: c }} />
-            ))}
-          </div>
-          <span className={`inline-block w-fit px-3 py-1 ${categoryColor} text-foreground text-[11px] font-bold uppercase tracking-widest`}>
-            {work.category}
-          </span>
+      <div className="flex items-center justify-between gap-2 mb-4">
+        <div className="flex gap-1.5">
+          {work.swatches.map((c: string, i: number) => (
+            <span key={i} className="w-3.5 h-3.5 rounded-full border border-foreground/10" style={{ backgroundColor: c }} />
+          ))}
         </div>
-
-        <div className="flex-1">
-          <div className="flex items-baseline justify-between flex-wrap gap-2 mb-2">
-            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{work.context} — {work.date}</p>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight mb-3">{work.title}</h3>
-
-          <p className="text-base md:text-lg leading-relaxed text-foreground/80">
-            {work.summary}{" "}
-            {work.tags.map((tag: string) => (
-              <span key={tag} className="text-sm text-foreground/50">#{tag} </span>
-            ))}
-            <button
-              onClick={() => setExpanded(!expanded)}
-              className="font-bold text-primary hover:underline whitespace-nowrap"
-            >
-              → {expanded ? "close case" : "open case"}
-            </button>
-          </p>
-
-          <AnimatePresence>
-            {expanded && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <div className="flex flex-col gap-3 pt-6 text-base leading-relaxed">
-                  <p><span className="font-bold">Challenge:</span> {work.challenge}</p>
-                  <p><span className="font-bold">Strategy:</span> {work.strategy}</p>
-                  <p><span className="font-bold">Result:</span> {work.result}</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <span className={`inline-block px-3 py-1 ${categoryColor} text-foreground text-[10px] font-bold uppercase tracking-widest`}>
+          {work.category}
+        </span>
       </div>
+
+      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">{work.context} — {work.date}</p>
+      <h3 className="text-xl font-serif font-bold leading-tight mb-3">{work.title}</h3>
+
+      <p className="text-sm leading-relaxed text-foreground/80 mb-3">
+        {work.summary}
+      </p>
+
+      <div className="flex flex-wrap gap-2 mb-3">
+        {work.tags.map((tag: string) => (
+          <span key={tag} className="text-xs text-foreground/50">#{tag}</span>
+        ))}
+      </div>
+
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="font-bold text-primary hover:underline text-sm text-left mt-auto pt-2"
+      >
+        → {expanded ? "close case" : "open case"}
+      </button>
+
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="flex flex-col gap-3 pt-5 text-sm leading-relaxed border-t border-border mt-4">
+              <p><span className="font-bold">Challenge:</span> {work.challenge}</p>
+              <p><span className="font-bold">Strategy:</span> {work.strategy}</p>
+              <p><span className="font-bold">Result:</span> {work.result}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
