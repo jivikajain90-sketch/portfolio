@@ -108,13 +108,13 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-7xl mx-auto w-full relative"
           >
-            <div className="absolute -top-12 -left-6 md:-left-12 rotate-[-8deg] opacity-80 text-primary">
+            <div className="absolute -top-12 -left-6 md:-left-12 rotate-[-8deg] opacity-90 text-pastel-blue">
               <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50 5 L50 95 M5 50 L95 50 M25 25 L75 75 M25 75 L75 25" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
               </svg>
             </div>
             
-            <p className="font-hand text-2xl md:text-3xl text-primary mb-6 flex items-center gap-4 rotate-[-2deg]">
+            <p className="font-hand text-2xl md:text-3xl text-foreground/70 mb-6 flex items-center gap-4 rotate-[-2deg]">
               Marketing Strategist, based in Sydney
             </p>
             
@@ -126,17 +126,17 @@ export default function Home() {
             </h1>
             
             <div className="grid md:grid-cols-2 gap-12 mt-16">
-              <p className="text-xl md:text-3xl font-medium leading-tight border-l-4 border-primary pl-6">
+              <p className="text-xl md:text-3xl font-medium leading-tight border-l-4 border-pastel-green pl-6">
                 I look for the patterns in the data that matter, and turn them into strategy that fits the brand DNA.
               </p>
               
               <div className="flex flex-col justify-end items-start gap-4">
-                <Button size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-foreground text-lg h-16 px-10 uppercase tracking-widest font-bold" asChild>
+                <Button size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-foreground hover:text-background text-lg h-16 px-10 uppercase tracking-widest font-bold" asChild>
                   <a href="#work">Explore my work <ArrowRight className="ml-3 h-5 w-5" /></a>
                 </Button>
                 <div className="relative inline-block mt-4 rotate-[3deg]">
-                  <span className="absolute -inset-1 bg-yellow-200 -z-10"></span>
-                  <a href="mailto:jivikajain90@gmail.com" className="relative font-hand text-2xl px-2 hover:text-primary transition-colors">
+                  <span className="absolute -inset-1 bg-pastel-yellow -z-10"></span>
+                  <a href="mailto:jivikajain90@gmail.com" className="relative font-hand text-2xl px-2 hover:text-foreground/70 transition-colors">
                     Or just get in touch →
                   </a>
                 </div>
@@ -157,7 +157,7 @@ export default function Home() {
                   My approach to bridging the gap between raw data and actionable brand strategy.
                 </p>
                 
-                <div className="mt-16 hidden md:block text-primary opacity-60">
+                <div className="mt-16 hidden md:block text-pastel-yellow opacity-90">
                   <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-[spin_10s_linear_infinite]">
                     <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10" />
                     <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="2" />
@@ -200,7 +200,7 @@ export default function Home() {
               <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter uppercase relative z-10">
                 Selected Work
               </h2>
-              <div className="absolute -bottom-8 -right-12 text-primary rotate-[-10deg] hidden md:block">
+              <div className="absolute -bottom-8 -right-12 text-pastel-green rotate-[-10deg] hidden md:block">
                 <svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5 35 Q 25 5 50 15 T 95 5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none"/>
                   <path d="M85 0 L97 5 L90 15" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
@@ -230,7 +230,7 @@ export default function Home() {
           </div>
           
           <div className="mt-32 p-12 bg-secondary relative">
-            <div className="absolute -top-6 -left-6 bg-primary text-white font-hand text-2xl px-4 py-1 rotate-[-5deg] shadow-lg">
+            <div className="absolute -top-6 -left-6 bg-pastel-yellow text-foreground font-hand text-2xl px-4 py-1 rotate-[-5deg] shadow-lg">
               Plus a few more!
             </div>
             <p className="text-xl md:text-2xl font-serif max-w-3xl">
@@ -243,7 +243,7 @@ export default function Home() {
         </section>
 
         {/* TOOLKIT SECTION */}
-        <section id="toolkit" className="py-32 px-6 md:px-12 lg:px-24 bg-primary text-primary-foreground relative overflow-hidden">
+        <section id="toolkit" className="py-32 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground relative overflow-hidden">
           {/* Decorative giant text */}
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none opacity-10 overflow-hidden">
             <span className="text-[30vw] font-serif font-black whitespace-nowrap text-outline">TOOLKIT</span>
@@ -252,7 +252,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="flex items-center justify-between mb-24">
               <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter">THE TOOLKIT</h2>
-              <div className="w-24 h-24 bg-background rounded-full hidden md:flex items-center justify-center text-primary font-hand text-2xl rotate-[15deg]">
+              <div className="w-24 h-24 bg-background rounded-full hidden md:flex items-center justify-center text-foreground font-hand text-2xl rotate-[15deg]">
                 Skills!
               </div>
             </div>
@@ -267,12 +267,12 @@ export default function Home() {
                 { name: "AI-Assisted Workflow", desc: "Accelerating research and synthesis.", tools: ["ChatGPT", "Claude", "GitHub Copilot"] }
               ].map((category, i) => (
                 <div key={i} className="flex flex-col relative group">
-                  <div className="absolute -left-4 top-0 w-1 h-0 bg-background group-hover:h-full transition-all duration-300 ease-out" />
+                  <div className="absolute -left-4 top-0 w-1 h-0 bg-foreground group-hover:h-full transition-all duration-300 ease-out" />
                   <h3 className="text-2xl font-serif font-bold mb-3">{category.name}</h3>
                   <p className="text-lg opacity-80 mb-6">{category.desc}</p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {category.tools.map(tool => (
-                      <span key={tool} className="text-sm px-4 py-2 bg-background/10 border border-background/20 font-medium">
+                      <span key={tool} className="text-sm px-4 py-2 bg-background/40 border border-foreground/20 font-medium">
                         {tool}
                       </span>
                     ))}
@@ -296,7 +296,7 @@ export default function Home() {
             ].map((item, i) => (
               <div key={i} className="py-12 border-b border-border flex flex-col md:flex-row md:items-baseline gap-6 md:gap-16 hover:bg-secondary/50 transition-colors px-4 -mx-4">
                 <div className="w-32 shrink-0">
-                  <span className="font-hand text-4xl text-primary">{item.year}</span>
+                  <span className="font-hand text-4xl text-foreground/70">{item.year}</span>
                 </div>
                 <div className="flex-1">
                   <h3 className="text-3xl font-serif font-bold mb-4">{item.title}</h3>
@@ -310,19 +310,19 @@ export default function Home() {
         {/* CONTACT SECTION */}
         <section id="contact" className="py-32 px-6 md:px-12 lg:px-24 bg-foreground text-background">
           <div className="max-w-5xl mx-auto text-center relative">
-            <div className="absolute top-0 right-10 rotate-[12deg] text-primary">
+            <div className="absolute top-0 right-10 rotate-[12deg] text-pastel-yellow">
               <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" fill="currentColor"/>
               </svg>
             </div>
             
             <h2 className="text-5xl md:text-8xl font-serif font-black tracking-tighter leading-[0.9] mb-16">
-              EVERY GOOD STRATEGY<br/>STARTS WITH A <span className="italic text-primary">QUESTION.</span>
+              EVERY GOOD STRATEGY<br/>STARTS WITH A <span className="italic text-pastel-pink">QUESTION.</span>
             </h2>
-            <p className="font-hand text-4xl text-primary mb-12 -rotate-2">Let's explore yours.</p>
+            <p className="font-hand text-4xl text-pastel-pink mb-12 -rotate-2">Let's explore yours.</p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Button size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-background hover:text-foreground h-20 px-10 text-xl tracking-widest uppercase font-bold" asChild>
+              <Button size="lg" className="rounded-none bg-pastel-pink text-foreground hover:bg-background hover:text-foreground h-20 px-10 text-xl tracking-widest uppercase font-bold" asChild>
                 <a href="mailto:jivikajain90@gmail.com">jivikajain90@gmail.com</a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-none border-2 border-background/30 hover:bg-background hover:text-foreground h-20 px-10 text-xl tracking-widest uppercase font-bold" asChild>
@@ -342,9 +342,16 @@ export default function Home() {
   );
 }
 
+const categoryColors: Record<string, string> = {
+  "Brand Strategy": "bg-pastel-blue",
+  "Data & Insight": "bg-pastel-green",
+  "Social Impact": "bg-pastel-lavender",
+};
+
 function WorkCard({ work, index }: { work: any, index: number }) {
   const [expanded, setExpanded] = useState(false);
   const rotation = index % 2 === 0 ? "rotate-[-1deg]" : "rotate-[1deg]";
+  const categoryColor = categoryColors[work.category] ?? "bg-pastel-pink";
 
   return (
     <motion.div
@@ -353,15 +360,15 @@ function WorkCard({ work, index }: { work: any, index: number }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className={`bg-white border-2 border-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(255,74,28,1)] transition-all duration-300 ${rotation}`}
+      className={`bg-white border-2 border-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_hsl(var(--pastel-pink))] transition-all duration-300 ${rotation}`}
     >
       <div className="p-8 md:p-12">
         <div className="flex flex-col gap-6 mb-8">
           <div className="flex items-center gap-4 flex-wrap">
-            <span className="px-4 py-1 bg-foreground text-background text-xs font-bold uppercase tracking-widest">
+            <span className={`px-4 py-1 ${categoryColor} text-foreground text-xs font-bold uppercase tracking-widest border border-foreground/10`}>
               {work.category}
             </span>
-            <span className="font-hand text-xl text-primary">{work.date}</span>
+            <span className="font-hand text-xl text-foreground/70">{work.date}</span>
           </div>
           
           <div>
