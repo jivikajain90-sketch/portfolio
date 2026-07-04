@@ -1,0 +1,93 @@
+Nav: Jivika Jain | Approach · Work · Toolkit · Journey · Contact | Say hello
+Hero: hi, I'm
+Jivika Jain
+A marketing strategist based in Sydney. I look for the patterns in the data that matter, and turn them into strategy that fits the brand DNA.
+
+How I Work
+Three principles behind every project.
+i. Challenge assumptions with data.
+I begin by finding the metrics that don't fit the narrative, using them to uncover the real drivers behind customer and business outcomes.
+ii. Connect insight to strategy.
+I synthesise research, analytics, and market context into recommendations that strengthen brand positioning and support commercial objectives.
+iii. Communicate for decision-making.
+I present findings through clear reports and dashboards that make complex analysis easy to understand, discuss, and act on.
+Selected Work — Strategy, made visible. A mix of client, academic and independent projects. Open a card for the full case — challenge, strategy, result.
+Filters: All work / Brand Strategy / Data & Insight / Social Impact
+psst — the swatches on each card are pulled from that brand's real palette, not a template.
+
+WPP Next Gen Program — Nov 2025
+Rebuilding Nestlé for a Gen Z audience
+A brand strategy deck unifying Nestlé's sister brands under one identity for a younger audience — presented directly to Nestlé's Brand Manager. brand architecture gen z → open case
+Challenge: Nestlé's sub-brands felt disconnected to Gen Z shoppers, who related to individual products but not the parent brand.
+Strategy: Proposed a unifying identity system and community-first content approach, plus a physical "experience store" concept to make the house of brands tangible.
+Result: Presented to Nestlé's Brand Manager, who commended the work directly.
+New Product Development, USYD — Mar–Jun 2026
+NOVO Shoes: the case for detachable heels
+A go-to-market strategy for a new product line, built around 2026's "Fiercely Unfiltered" consumer trend and Australian women who want authenticity. product strategy trend research → open case
+Challenge: Design a viable new product line for NOVO Shoes that felt distinct in a crowded, price-sensitive footwear market.
+Strategy: Positioned "detachable heels" around affordability and everyday authenticity, tying the launch narrative to the "Fiercely Unfiltered" trend report.
+Result: Recognised by the unit coordinator and tutor as a standout project among all groups.
+Data Visualisation, USYD — Aug–Oct 2025
+A dashboard for the "should I move to Australia?" decision
+A live, GitHub-hosted dashboard, coded in Python, turning Australian Government employment data into a clear tool for international students. python live data → open case
+Challenge: International students had no single, honest source for post-study employability outlook by industry.
+Strategy: Built and coded a dashboard pulling live data from Australian Government sources, with industry outlooks a prospective student could actually act on.
+Result: A live, publicly hosted dashboard that transforms complex government labour market data into an accessible decision-making tool for prospective international students.
+Management Consulting, USYD — Apr–May 2026
+Fifth Frame: when a merger meets culture clash
+A solutions roadmap for a real M&A case study centred on post-merger culture conflict — shortlisted to present directly to the client. consulting stakeholder strategy → open case
+Challenge: Two merging organisations with incompatible cultures, risking talent loss and stalled integration.
+Strategy: Developed a phased plan of action addressing culture alignment alongside commercial priorities.
+Result: One of the projects shortlisted from the unit to present directly to the client.
+Marketing for Social Change, USYD — Mar 2026
+Guide Dogs Australia: "Same Job, Different Timelines"
+A social marketing campaign built with Guide Dogs Australia to raise awareness of Rule 26 and push for inclusive recruitment of people with low vision. social marketing accessibility → open case
+Challenge: Employers were unaware of Rule 26 and defaulted away from hiring candidates with low vision.
+Strategy: Framed the campaign around equal capability on different timelines — reframing accommodation as normal, not exceptional.
+Result: The only project selected by the teaching team to be submitted to Guide Dogs Australia for client review.
+Marketing for Social Change, USYD — Individual — Mar 2026
+"Words That Stick": naming BDD before it's diagnosed
+A social marketing campaign addressing undiagnosed Body Dysmorphic Disorder among teenage girls in Australia, built to reach a group that suffers quietly. social marketing youth mental health → open case
+Challenge: BDD in teen girls is widespread and under-named, so it rarely gets addressed before it's diagnosed.
+Strategy: Positioned schools as the primary intervention point, combining peer-led messaging with community support to encourage early recognition of BDD and lower barriers to help-seeking.
+Result: Independently led the project from insight generation to campaign strategy and creative execution.
+
+a few more — Kearney National Case Competition, an innovation commercialisation plan, and a Transport for NSW road-safety campaign — happy to walk through these on a call.
+
+
+
+Toolkit
+The capabilities behind the strategy
+Data & Insight
+Turning data into evidence.
+Python, SQL, Tableau, Power BI, SPSS, Excel
+Brand & Strategy
+Turning evidence into strategic direction.
+Brand positioning, Brand architecture, Go-to-market strategy, Social marketing, Consumer insights & market research
+Research & Measurement
+Measuring what matters.
+Google Analytics 4 (GA4), Adobe Analytics, SEMrush, Google Trends, Google Keyword Planner
+Visualisation & Communication
+Making complex ideas easy to understand.
+Figma, Canva, WordPress, Miro
+Channel Execution
+Putting strategy into market.
+Meta Ads, Google Ads, LinkedIn Ads, DV360, AppsFlyer
+AI-Assisted Workflow
+Accelerating research, synthesis, and communication.
+ChatGPT, Claude, GitHub Copilot
+
+Recognition 
+A few milestones that shaped my journey.
+2025 — Landor Next Gen: Selected for a competitive 5-week global brand strategy programme, alongside participants from 70+ countries.
+2025 — Kearney National Case Competition: Competed as a 4-person team on profitability and market differentiation for a meal-planning company.
+2024 — GroupM APAC Rising Star (Nominated): Recognised for outstanding performance across the Paid Digital Media India team.
+2024 — President's Recognition, GroupM India: For data-driven optimisation strategies that lifted campaign performance 150% and ad revenue 80%.
+Let's talk
+Every good strategy starts with a question. Let's explore yours.
+jivikajain90@gmail.com · LinkedIn ↗ · +61 410 123 983
+Footer: Jivika Jain — Sydney, Australia | Student Visa (500), part-time · Graduate Visa (485) eligible 2027
+
+
+
+
