@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, ExternalLink } from "lucide-react";
+import { ChevronDown, ArrowRight, ExternalLink, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const works = [
@@ -84,65 +84,88 @@ export default function Home() {
   const filteredWorks = filter === "All" ? works : works.filter(w => w.category === filter);
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      {/* Abstract Background Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] rounded-full bg-blue-500/10 blur-[150px]" />
-      </div>
-
-      <nav className="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/5 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
-        <div className="font-serif font-bold text-xl tracking-wider">JIVIKA JAIN</div>
-        <div className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground">
-          <a href="#approach" className="hover:text-foreground transition-colors">Approach</a>
-          <a href="#work" className="hover:text-foreground transition-colors">Work</a>
-          <a href="#toolkit" className="hover:text-foreground transition-colors">Toolkit</a>
-          <a href="#recognition" className="hover:text-foreground transition-colors">Journey</a>
-          <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
+    <div className="min-h-screen bg-background text-foreground">
+      <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border py-6 px-6 md:px-12 flex justify-between items-center">
+        <div className="font-serif font-black text-2xl tracking-tighter uppercase">Jivika Jain.</div>
+        <div className="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+          <a href="#approach" className="hover:text-primary transition-colors">Approach</a>
+          <a href="#work" className="hover:text-primary transition-colors">Work</a>
+          <a href="#toolkit" className="hover:text-primary transition-colors">Toolkit</a>
+          <a href="#recognition" className="hover:text-primary transition-colors">Journey</a>
+          <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
         </div>
-        <Button variant="outline" className="rounded-full border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground hidden md:flex" asChild>
+        <Button className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase hidden md:flex" asChild>
           <a href="mailto:jivikajain90@gmail.com">Say hello</a>
         </Button>
       </nav>
 
-      <main className="relative z-10 pt-32 pb-20">
+      <main className="pt-32 pb-20">
         {/* HERO SECTION */}
-        <section className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+        <section className="min-h-[85vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-7xl mx-auto w-full relative"
           >
-            <p className="text-primary font-medium tracking-widest uppercase text-sm mb-6 flex items-center gap-4">
-              <span className="w-12 h-px bg-primary"></span> Marketing Strategist, based in Sydney
+            <div className="absolute -top-12 -left-6 md:-left-12 rotate-[-8deg] opacity-80 text-primary">
+              <svg width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5 L50 95 M5 50 L95 50 M25 25 L75 75 M25 75 L75 25" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              </svg>
+            </div>
+            
+            <p className="font-hand text-2xl md:text-3xl text-primary mb-6 flex items-center gap-4 rotate-[-2deg]">
+              Marketing Strategist, based in Sydney
             </p>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-semibold leading-[1.1] mb-8 text-gradient">
-              Finding the <span className="italic font-light">patterns</span> in the data.<br/>
-              Building <span className="text-gradient-primary">strategy</span> that fits the DNA.
+            
+            <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-serif font-black leading-[0.85] tracking-tighter mb-10">
+              <span className="block">FINDING</span>
+              <span className="block italic text-primary">PATTERNS.</span>
+              <span className="block">BUILDING</span>
+              <span className="block">STRATEGY.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed mb-12">
-              A marketing strategist based in Sydney. I look for the patterns in the data that matter, and turn them into strategy that fits the brand DNA.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-base h-14 px-8" asChild>
-                <a href="#work">Explore my work <ArrowRight className="ml-2 h-4 w-4" /></a>
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full text-base h-14 px-8" asChild>
-                <a href="mailto:jivikajain90@gmail.com">Get in touch</a>
-              </Button>
+            
+            <div className="grid md:grid-cols-2 gap-12 mt-16">
+              <p className="text-xl md:text-3xl font-medium leading-tight border-l-4 border-primary pl-6">
+                I look for the patterns in the data that matter, and turn them into strategy that fits the brand DNA.
+              </p>
+              
+              <div className="flex flex-col justify-end items-start gap-4">
+                <Button size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-foreground text-lg h-16 px-10 uppercase tracking-widest font-bold" asChild>
+                  <a href="#work">Explore my work <ArrowRight className="ml-3 h-5 w-5" /></a>
+                </Button>
+                <div className="relative inline-block mt-4 rotate-[3deg]">
+                  <span className="absolute -inset-1 bg-yellow-200 -z-10"></span>
+                  <a href="mailto:jivikajain90@gmail.com" className="relative font-hand text-2xl px-2 hover:text-primary transition-colors">
+                    Or just get in touch →
+                  </a>
+                </div>
+              </div>
             </div>
           </motion.div>
         </section>
 
         {/* APPROACH SECTION */}
-        <section id="approach" className="py-24 px-6 md:px-12 lg:px-24 bg-card/30 border-y border-white/5">
+        <section id="approach" className="py-32 px-6 md:px-12 lg:px-24 bg-foreground text-background">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-12 gap-12">
-              <div className="md:col-span-4">
-                <h2 className="text-3xl md:text-4xl font-serif mb-4">Three principles behind every project.</h2>
-                <p className="text-muted-foreground">My approach to bridging the gap between raw data and actionable brand strategy.</p>
+            <div className="grid md:grid-cols-12 gap-16">
+              <div className="md:col-span-5">
+                <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tighter leading-none mb-6">
+                  THREE<br/>PRINCIPLES.
+                </h2>
+                <p className="text-xl text-muted">
+                  My approach to bridging the gap between raw data and actionable brand strategy.
+                </p>
+                
+                <div className="mt-16 hidden md:block text-primary opacity-60">
+                  <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-[spin_10s_linear_infinite]">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" strokeDasharray="10 10" />
+                    <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="2" />
+                    <circle cx="50" cy="50" r="5" fill="currentColor" />
+                  </svg>
+                </div>
               </div>
-              <div className="md:col-span-8 grid gap-8">
+              <div className="md:col-span-7 grid gap-0 border-t border-border/30">
                 {[
                   { title: "Challenge assumptions with data.", desc: "I begin by finding the metrics that don't fit the narrative, using them to uncover the real drivers behind customer and business outcomes." },
                   { title: "Connect insight to strategy.", desc: "I synthesise research, analytics, and market context into recommendations that strengthen brand positioning and support commercial objectives." },
@@ -150,18 +173,19 @@ export default function Home() {
                 ].map((item, i) => (
                   <motion.div 
                     key={i}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1, duration: 0.6 }}
-                    className="p-8 rounded-2xl glass-panel relative overflow-hidden group"
+                    className="py-12 border-b border-border/30 group relative"
                   >
-                    <div className="absolute top-0 left-0 w-1 h-full bg-primary transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
-                    <h3 className="text-xl font-serif mb-3 flex items-center gap-4">
-                      <span className="text-primary font-sans text-sm">0{i+1}</span>
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed pl-8">{item.desc}</p>
+                    <div className="flex gap-8">
+                      <div className="font-serif text-5xl font-bold text-primary opacity-50">0{i+1}</div>
+                      <div>
+                        <h3 className="text-3xl font-serif font-bold mb-4 group-hover:text-primary transition-colors">{item.title}</h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">{item.desc}</p>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -170,18 +194,26 @@ export default function Home() {
         </section>
 
         {/* WORK SECTION */}
-        <section id="work" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-serif mb-4">Selected Work</h2>
-              <p className="text-muted-foreground max-w-2xl text-lg">Case studies demonstrating data-driven strategy and clear commercial outcomes.</p>
+        <section id="work" className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+            <div className="relative">
+              <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter uppercase relative z-10">
+                Selected Work
+              </h2>
+              <div className="absolute -bottom-8 -right-12 text-primary rotate-[-10deg] hidden md:block">
+                <svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 35 Q 25 5 50 15 T 95 5" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none"/>
+                  <path d="M85 0 L97 5 L90 15" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                </svg>
+              </div>
             </div>
+            
             <div className="flex flex-wrap gap-2">
               {categories.map(c => (
                 <button
                   key={c}
                   onClick={() => setFilter(c)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${filter === c ? 'bg-foreground text-background' : 'bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground'}`}
+                  className={`px-6 py-2 rounded-none border-2 text-sm font-bold tracking-widest uppercase transition-all ${filter === c ? 'bg-foreground border-foreground text-background' : 'border-border text-foreground hover:border-foreground'}`}
                 >
                   {c}
                 </button>
@@ -189,7 +221,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid gap-8">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
             <AnimatePresence mode="popLayout">
               {filteredWorks.map((work, idx) => (
                 <WorkCard key={work.id} work={work} index={idx} />
@@ -197,31 +229,50 @@ export default function Home() {
             </AnimatePresence>
           </div>
           
-          <div className="mt-16 text-center text-muted-foreground italic">
-            <p>Plus a few more — Kearney National Case Competition, an innovation commercialisation plan, and a Transport for NSW road-safety campaign.</p>
-            <a href="mailto:jivikajain90@gmail.com" className="text-primary hover:underline not-italic font-medium mt-2 inline-block">Happy to walk through these on a call.</a>
+          <div className="mt-32 p-12 bg-secondary relative">
+            <div className="absolute -top-6 -left-6 bg-primary text-white font-hand text-2xl px-4 py-1 rotate-[-5deg] shadow-lg">
+              Plus a few more!
+            </div>
+            <p className="text-xl md:text-2xl font-serif max-w-3xl">
+              Kearney National Case Competition, an innovation commercialisation plan, and a Transport for NSW road-safety campaign.
+            </p>
+            <a href="mailto:jivikajain90@gmail.com" className="inline-flex items-center gap-2 mt-8 text-lg font-bold border-b-2 border-foreground hover:text-primary hover:border-primary transition-colors pb-1">
+              Happy to walk through these on a call <ArrowUpRight className="w-5 h-5" />
+            </a>
           </div>
         </section>
 
         {/* TOOLKIT SECTION */}
-        <section id="toolkit" className="py-24 px-6 md:px-12 lg:px-24 bg-card/30 border-y border-white/5">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-serif mb-16 text-center">The Toolkit</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section id="toolkit" className="py-32 px-6 md:px-12 lg:px-24 bg-primary text-primary-foreground relative overflow-hidden">
+          {/* Decorative giant text */}
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none opacity-10 overflow-hidden">
+            <span className="text-[30vw] font-serif font-black whitespace-nowrap text-outline">TOOLKIT</span>
+          </div>
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="flex items-center justify-between mb-24">
+              <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter">THE TOOLKIT</h2>
+              <div className="w-24 h-24 bg-background rounded-full hidden md:flex items-center justify-center text-primary font-hand text-2xl rotate-[15deg]">
+                Skills!
+              </div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 gap-y-16">
               {[
                 { name: "Data & Insight", desc: "Turning data into evidence.", tools: ["Python", "SQL", "Tableau", "Power BI", "SPSS", "Excel"] },
                 { name: "Brand & Strategy", desc: "Turning evidence into strategic direction.", tools: ["Brand positioning", "Brand architecture", "Go-to-market strategy", "Social marketing", "Consumer insights & market research"] },
-                { name: "Research & Measurement", desc: "Measuring what matters.", tools: ["Google Analytics 4 (GA4)", "Adobe Analytics", "SEMrush", "Google Trends", "Google Keyword Planner"] },
-                { name: "Visualisation & Communication", desc: "Making complex ideas easy to understand.", tools: ["Figma", "Canva", "WordPress", "Miro"] },
+                { name: "Research & Measurement", desc: "Measuring what matters.", tools: ["Google Analytics 4", "Adobe Analytics", "SEMrush", "Google Trends", "Keyword Planner"] },
+                { name: "Visualisation", desc: "Making complex ideas easy to understand.", tools: ["Figma", "Canva", "WordPress", "Miro"] },
                 { name: "Channel Execution", desc: "Putting strategy into market.", tools: ["Meta Ads", "Google Ads", "LinkedIn Ads", "DV360", "AppsFlyer"] },
-                { name: "AI-Assisted Workflow", desc: "Accelerating research, synthesis, and communication.", tools: ["ChatGPT", "Claude", "GitHub Copilot"] }
+                { name: "AI-Assisted Workflow", desc: "Accelerating research and synthesis.", tools: ["ChatGPT", "Claude", "GitHub Copilot"] }
               ].map((category, i) => (
-                <div key={i} className="p-8 rounded-2xl glass-panel flex flex-col">
-                  <h3 className="text-xl font-serif mb-2">{category.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-6 h-10">{category.desc}</p>
+                <div key={i} className="flex flex-col relative group">
+                  <div className="absolute -left-4 top-0 w-1 h-0 bg-background group-hover:h-full transition-all duration-300 ease-out" />
+                  <h3 className="text-2xl font-serif font-bold mb-3">{category.name}</h3>
+                  <p className="text-lg opacity-80 mb-6">{category.desc}</p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {category.tools.map(tool => (
-                      <span key={tool} className="text-xs px-3 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground/80 border border-white/5">
+                      <span key={tool} className="text-sm px-4 py-2 bg-background/10 border border-background/20 font-medium">
                         {tool}
                       </span>
                     ))}
@@ -233,23 +284,23 @@ export default function Home() {
         </section>
 
         {/* RECOGNITION SECTION */}
-        <section id="recognition" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-serif mb-16">Recognition & Milestones</h2>
-          <div className="grid gap-12 relative before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+        <section id="recognition" className="py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+          <h2 className="text-6xl md:text-8xl font-serif font-black tracking-tighter mb-24">JOURNEY &<br/><span className="text-primary italic">MILESTONES</span></h2>
+          
+          <div className="grid gap-0 border-t-4 border-foreground">
             {[
               { year: "2025", title: "Landor Next Gen", desc: "Selected for a competitive 5-week global brand strategy programme, alongside participants from 70+ countries." },
               { year: "2025", title: "Kearney National Case Competition", desc: "Competed as a 4-person team on profitability and market differentiation for a meal-planning company." },
-              { year: "2024", title: "GroupM APAC Rising Star (Nominated)", desc: "Recognised for outstanding performance across the Paid Digital Media India team." },
-              { year: "2024", title: "President's Recognition, GroupM India", desc: "For data-driven optimisation strategies that lifted campaign performance 150% and ad revenue 80%." }
+              { year: "2024", title: "GroupM APAC Rising Star", desc: "Nominated. Recognised for outstanding performance across the Paid Digital Media India team." },
+              { year: "2024", title: "President's Recognition", desc: "GroupM India. For data-driven optimisation strategies that lifted campaign performance 150% and ad revenue 80%." }
             ].map((item, i) => (
-              <div key={i} className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active`}>
-                <div className="flex items-center justify-center w-8 h-8 rounded-full border-4 border-background bg-primary shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10" />
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl glass-panel">
-                  <div className="flex items-center gap-4 mb-2">
-                    <span className="text-primary font-bold">{item.year}</span>
-                    <h3 className="text-lg font-serif">{item.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground">{item.desc}</p>
+              <div key={i} className="py-12 border-b border-border flex flex-col md:flex-row md:items-baseline gap-6 md:gap-16 hover:bg-secondary/50 transition-colors px-4 -mx-4">
+                <div className="w-32 shrink-0">
+                  <span className="font-hand text-4xl text-primary">{item.year}</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-3xl font-serif font-bold mb-4">{item.title}</h3>
+                  <p className="text-xl text-muted-foreground max-w-2xl">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -257,26 +308,35 @@ export default function Home() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section id="contact" className="py-24 px-6 md:px-12 lg:px-24">
-          <div className="max-w-4xl mx-auto text-center p-12 md:p-20 rounded-3xl glass-panel relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none" />
-            <h2 className="text-4xl md:text-6xl font-serif mb-8 relative z-10">Every good strategy starts with a question. Let's explore yours.</h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
-              <Button size="lg" className="rounded-full bg-foreground text-background hover:bg-foreground/90 h-14 px-8 text-base" asChild>
+        <section id="contact" className="py-32 px-6 md:px-12 lg:px-24 bg-foreground text-background">
+          <div className="max-w-5xl mx-auto text-center relative">
+            <div className="absolute top-0 right-10 rotate-[12deg] text-primary">
+              <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" fill="currentColor"/>
+              </svg>
+            </div>
+            
+            <h2 className="text-5xl md:text-8xl font-serif font-black tracking-tighter leading-[0.9] mb-16">
+              EVERY GOOD STRATEGY<br/>STARTS WITH A <span className="italic text-primary">QUESTION.</span>
+            </h2>
+            <p className="font-hand text-4xl text-primary mb-12 -rotate-2">Let's explore yours.</p>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Button size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-background hover:text-foreground h-20 px-10 text-xl tracking-widest uppercase font-bold" asChild>
                 <a href="mailto:jivikajain90@gmail.com">jivikajain90@gmail.com</a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full h-14 px-8 text-base" asChild>
-                <a href="https://www.linkedin.com/in/jivika-jain-2001/" target="_blank" rel="noopener noreferrer">LinkedIn <ExternalLink className="ml-2 h-4 w-4" /></a>
+              <Button size="lg" variant="outline" className="rounded-none border-2 border-background/30 hover:bg-background hover:text-foreground h-20 px-10 text-xl tracking-widest uppercase font-bold" asChild>
+                <a href="https://www.linkedin.com/in/jivika-jain-2001/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight className="ml-3 h-6 w-6" /></a>
               </Button>
             </div>
-            <p className="mt-8 text-muted-foreground relative z-10">+61 410 123 983</p>
+            <p className="mt-16 text-xl font-medium opacity-60">+61 410 123 983</p>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-white/5 py-8 px-6 md:px-12 lg:px-24 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground relative z-10">
+      <footer className="py-12 px-6 md:px-12 lg:px-24 flex flex-col md:flex-row justify-between items-center gap-6 font-bold uppercase tracking-widest text-xs border-t border-border bg-background">
         <div>Jivika Jain — Sydney, Australia</div>
-        <div>Student Visa (500), part-time · Graduate Visa (485) eligible 2027</div>
+        <div className="text-center md:text-right text-muted-foreground">Student Visa (500), part-time<br/>Graduate Visa (485) eligible 2027</div>
       </footer>
     </div>
   );
@@ -284,6 +344,7 @@ export default function Home() {
 
 function WorkCard({ work, index }: { work: any, index: number }) {
   const [expanded, setExpanded] = useState(false);
+  const rotation = index % 2 === 0 ? "rotate-[-1deg]" : "rotate-[1deg]";
 
   return (
     <motion.div
@@ -292,38 +353,41 @@ function WorkCard({ work, index }: { work: any, index: number }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="rounded-2xl glass-panel overflow-hidden border border-white/5 hover:border-white/10 transition-colors"
+      className={`bg-white border-2 border-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(255,74,28,1)] transition-all duration-300 ${rotation}`}
     >
-      <div className="p-8 md:p-10">
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-medium tracking-wider uppercase text-primary">{work.category}</span>
-              <span className="w-1 h-1 rounded-full bg-white/20" />
-              <span className="text-xs text-muted-foreground">{work.date}</span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-serif mb-2">{work.title}</h3>
-            <p className="text-muted-foreground font-medium">{work.context}</p>
+      <div className="p-8 md:p-12">
+        <div className="flex flex-col gap-6 mb-8">
+          <div className="flex items-center gap-4 flex-wrap">
+            <span className="px-4 py-1 bg-foreground text-background text-xs font-bold uppercase tracking-widest">
+              {work.category}
+            </span>
+            <span className="font-hand text-xl text-primary">{work.date}</span>
           </div>
-          <div className="flex flex-wrap gap-2 md:justify-end shrink-0">
-            {work.tags.map((tag: string) => (
-              <span key={tag} className="px-3 py-1 rounded-full bg-white/5 text-xs text-white/70">
-                {tag}
-              </span>
-            ))}
+          
+          <div>
+            <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-3">{work.context}</p>
+            <h3 className="text-3xl md:text-4xl font-serif font-bold leading-tight">{work.title}</h3>
           </div>
         </div>
         
-        <p className="text-lg leading-relaxed mb-8">{work.summary}</p>
+        <p className="text-xl leading-relaxed mb-8">{work.summary}</p>
         
-        <div className="border-t border-white/5 pt-6">
+        <div className="flex flex-wrap gap-2 mb-10">
+          {work.tags.map((tag: string) => (
+            <span key={tag} className="font-hand text-lg px-2 text-foreground/70 border-b border-dashed border-foreground/30">
+              #{tag}
+            </span>
+          ))}
+        </div>
+        
+        <div className="border-t-2 border-border pt-6">
           <button 
             onClick={() => setExpanded(!expanded)}
-            className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            className="w-full flex justify-between items-center font-bold uppercase tracking-widest text-sm hover:text-primary transition-colors"
           >
-            {expanded ? 'Hide details' : 'View Challenge, Strategy & Result'}
+            <span>{expanded ? 'Hide details' : 'Challenge, Strategy & Result'}</span>
             <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className="w-5 h-5" />
             </motion.div>
           </button>
           
@@ -336,18 +400,18 @@ function WorkCard({ work, index }: { work: any, index: number }) {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="grid md:grid-cols-3 gap-8 pt-8 pb-4">
+                <div className="flex flex-col gap-8 pt-8 pb-4">
                   <div>
-                    <h4 className="font-serif text-lg mb-3 text-white">The Challenge</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{work.challenge}</p>
+                    <h4 className="font-serif text-2xl font-bold mb-2">The Challenge</h4>
+                    <p className="text-lg leading-relaxed">{work.challenge}</p>
                   </div>
                   <div>
-                    <h4 className="font-serif text-lg mb-3 text-white">The Strategy</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{work.strategy}</p>
+                    <h4 className="font-serif text-2xl font-bold mb-2">The Strategy</h4>
+                    <p className="text-lg leading-relaxed">{work.strategy}</p>
                   </div>
                   <div>
-                    <h4 className="font-serif text-lg mb-3 text-white">The Result</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{work.result}</p>
+                    <h4 className="font-serif text-2xl font-bold mb-2">The Result</h4>
+                    <p className="text-lg leading-relaxed">{work.result}</p>
                   </div>
                 </div>
               </motion.div>
