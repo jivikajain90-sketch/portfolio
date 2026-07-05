@@ -60,7 +60,7 @@ const works = [
   },
   {
     id: 4,
-    category: "Data & Insight",
+    category: "Consulting",
     title: "Vestagrid x South Ridge",
     summary: "A consulting roadmap for post-merger culture integration.",
     challenge: "Two organisations faced significant cultural conflict following a merger.",
@@ -103,6 +103,7 @@ const recognitions = [
 
 const categoryColors: Record<string, string> = {
   "Brand Strategy": "bg-pastel-blue",
+  "Consulting": "bg-pastel-orange",
   "Data & Insight": "bg-pastel-green",
   "Social Impact": "bg-pastel-lavender",
 };
@@ -118,7 +119,7 @@ const navLinks = [
 export default function Home() {
   const [filter, setFilter] = useState("All work");
   const [activeSection, setActiveSection] = useState<string>("");
-  const categories = ["All work", "Brand Strategy", "Data & Insight", "Social Impact"];
+  const categories = ["All work", "Brand Strategy", "Consulting", "Data & Insight", "Social Impact"];
   const filteredWorks = filter === "All work" ? works : works.filter((w) => w.category === filter);
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const { toast } = useToast();
