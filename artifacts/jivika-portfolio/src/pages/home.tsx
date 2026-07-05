@@ -343,7 +343,7 @@ export default function Home() {
               Let's connect.
             </h2>
             <p className="text-lg text-background/70 mb-2 max-w-xl mx-auto leading-relaxed">
-              Whether it's a strategy challenge, collaboration or simply a conversation about marketing, I'd love to hear from you.
+              Whether it's a strategy challenge, collaboration or simply a conversation about brands, I'd love to hear from you.
             </p>
             <p className="text-lg text-background/70 mb-12 max-w-xl mx-auto leading-relaxed">
               Bonus points if it's over coffee, I'm always up for a coffee chat!
