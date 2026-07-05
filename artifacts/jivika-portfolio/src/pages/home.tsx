@@ -338,7 +338,6 @@ export default function Home() {
         {/* CONTACT SECTION */}
         <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 bg-foreground text-background">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="font-hand text-xl text-pastel-pink mb-6">Contact</p>
 
             <h2 className="text-3xl md:text-5xl font-serif font-black tracking-tight leading-tight mb-6">
               Let's connect.
