@@ -61,11 +61,11 @@ const works = [
   {
     id: 4,
     category: "Data & Insight",
-    title: "Fifth Frame",
+    title: "Vestagrid x South Ridge",
     summary: "A consulting roadmap for post-merger culture integration.",
     challenge: "Two organisations faced significant cultural conflict following a merger.",
     strategy: "Developed a phased integration roadmap balancing commercial objectives with organisational culture.",
-    result: "Shortlisted to present the solution directly to the client.",
+    result: "Shortlisted to present the solution directly to the client, Fifth Frame.",
     skills: ["Consulting", "Stakeholder Strategy", "Change Management"],
     swatches: ["#33414E", "#8C97A1", "#F2F2F2"],
   },
