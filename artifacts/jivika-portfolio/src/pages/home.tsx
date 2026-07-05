@@ -17,8 +17,10 @@ const toolkitCategories = [
   { name: "Research & Insight", tools: ["Google Trends", "SEMrush", "Google Keyword Planner", "Adobe Analytics", "GA4"] },
   { name: "Analytics & Visualisation", tools: ["Python", "SQL", "Tableau", "Power BI", "SPSS", "Excel", "GitHub", "Natural Language Processing"] },
   { name: "Strategy", tools: ["Brand Positioning", "Consumer Research", "Go-to-Market", "Social Marketing", "Commercialisation"] },
+  { name: "Strategic Frameworks", tools: ["SWOT", "PESTLE", "Porter's Five Forces", "3C Analysis", "McKinsey 7S", "BCG Matrix", "Value Chain Analysis"] },
+  { name: "Problem-Solving & Communication", tools: ["MECE", "Issue Tree Mapping", "Hypothesis-driven Analysis", "Stakeholder Mapping", "Pyramid Principle", "Executive Storytelling"] },
   { name: "Marketing Platforms", tools: ["Google Ads", "Meta Ads", "LinkedIn Ads", "DV360", "AppsFlyer", "Affise"] },
-  { name: "Communication", tools: ["Figma", "Canva", "Miro", "WordPress"] },
+  { name: "Design & Collaboration", tools: ["Figma", "Canva", "Miro", "WordPress"] },
   { name: "AI Workflow", tools: ["ChatGPT", "Claude", "Copilot", "Gemini", "Google NotebookLM", "Replit"] },
 ];
 
@@ -200,16 +202,12 @@ export default function Home() {
             <h1 className="text-3xl md:text-5xl font-serif font-black leading-[0.95] tracking-tight mb-3">
               Jivika Jain
             </h1>
-            <p className="text-xl md:text-2xl font-serif font-bold text-primary mb-8">
-              Marketing Strategist
-            </p>
-
             <p className="text-xl md:text-2xl font-medium leading-relaxed text-foreground/80 max-w-2xl border-l-4 border-pastel-green pl-6 mb-14">
               Turning data, consumer insight and AI-assisted analysis into strategies that create meaningful business impact.
             </p>
 
             <div className="mb-14">
-              <p className="text-xs font-bold uppercase tracking-widest text-foreground/60 mb-5">Capabilities</p>
+              <p className="text-base font-bold uppercase tracking-widest text-foreground/60 mb-5">Capabilities</p>
               <div className="grid sm:grid-cols-3 gap-6 max-w-4xl">
                 {capabilities.map((cap) => (
                   <div key={cap.label} className="transition-transform hover:-translate-y-1">
@@ -278,11 +276,11 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">Strategic Toolkit</h2>
             <p className="text-lg text-foreground/70 mb-14">The methods behind every strategy.</p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+            <div className="grid md:grid-cols-2 gap-6">
               {toolkitCategories.map((category, i) => (
-                <div key={i} className="flex flex-col">
+                <div key={i} className="flex flex-col bg-background/50 border border-foreground/10 p-6 h-full">
                   <h3 className="text-lg font-serif font-bold mb-3">{category.name}</h3>
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                  <div className="flex flex-wrap content-start gap-2">
                     {category.tools.map((tool) => (
                       <span
                         key={tool}
