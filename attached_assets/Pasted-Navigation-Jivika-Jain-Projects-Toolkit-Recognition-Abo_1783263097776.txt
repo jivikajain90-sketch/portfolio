@@ -1,0 +1,145 @@
+Navigation
+Jivika Jain
+Projects · Toolkit · Recognition · About · Contact
+
+Hero
+Hi, I'm
+Jivika Jain
+Marketing Strategist
+Turning data, consumer insight and AI-assisted analysis into strategies that create meaningful business impact.
+Capabilities
+Strategy
+Brand Strategy • Marketing Strategy • Go-to-Market • Innovation
+Analytics
+Marketing Analytics • SQL • Python • Tableau • AI-Assisted Analysis
+Research
+Consumer Insight • Market Research • Data Storytelling • Performance Measurement
+Explore my work  or just get in touch
+
+Strategic Toolkit
+The methods behind every strategy.
+Research & Insight
+Google Trends • SEMrush • Google Keyword Planner • Adobe Analytics • GA4
+Analytics & Visualisation
+Python • SQL • Tableau • Power BI • SPSS • Excel • GitHub • Natural Language Processing
+Strategy
+Brand Positioning • Consumer Research • Go-to-Market • Social Marketing • Commercialisation
+Marketing Platforms
+Google Ads • Meta Ads • LinkedIn Ads • DV360 • AppsFlyer • Affise
+Communication
+Figma • Canva • Miro • WordPress
+AI Workflow
+ChatGPT • Claude • Copilot • Gemini • Google NotebookLM • Replit 
+Research • Insight Synthesis • Business Translation • Strategic Recommendations
+
+Featured Projects
+Strategy, made visible.
+Six projects across brand strategy, marketing analytics, consulting and social impact.
+
+Nestlé — Rebuilding a House of Brands for Gen Z
+A brand strategy developed through the WPP Next Gen Program.
+→ View Case Study
+Challenge
+Nestlé's sub-brands resonated individually with Gen Z, but the parent brand lacked a clear identity and emotional connection.
+Strategy
+Created a unifying brand architecture, community-first content strategy and experience-store concept to strengthen the relationship between Nestlé and younger consumers.
+Result
+Presented directly to Nestlé's Brand Manager, who commended the strategic direction.
+Skills
+Brand Strategy • Brand Architecture • Consumer Insight • Experience Design
+
+
+NOVO Shoes — The Case for Detachable Heels
+A go-to-market strategy built around emerging consumer trends.
+→ View Case Study
+Challenge
+Design a commercially viable product for a crowded and price-sensitive footwear market.
+Strategy
+Positioned detachable heels around affordability, versatility and authenticity using the 2026 Fiercely Unfiltered consumer trend.
+Result
+Recognised by the unit coordinator and tutor as one of the strongest projects in the cohort.
+Skills
+Go-to-Market • Trend Research • Product Strategy
+
+Employability Dashboard
+Helping international students make informed decisions.
+→ View Case Study
+Challenge
+Employment data existed across multiple government sources but wasn't accessible or actionable.
+Strategy
+Developed a live Python dashboard combining labour market data into an intuitive decision-making tool.
+Result
+Delivered a publicly hosted dashboard translating complex datasets into practical career insights.
+Skills
+Python • Tableau • Data Analytics • Visualisation
+
+Fifth Frame
+A consulting roadmap for post-merger culture integration.
+→ View Case Study
+Challenge
+Two organisations faced significant cultural conflict following a merger.
+Strategy
+Developed a phased integration roadmap balancing commercial objectives with organisational culture.
+Result
+Shortlisted to present the solution directly to the client.
+Skills
+Consulting • Stakeholder Strategy • Change Management
+
+Guide Dogs Australia
+Encouraging more inclusive recruitment.
+→ View Case Study
+Challenge
+Many employers misunderstood Rule 26 and overlooked candidates with low vision.
+Strategy
+Designed a behaviour-change campaign reframing workplace accommodations as normal rather than exceptional.
+Result
+Selected by the teaching team for submission to Guide Dogs Australia.
+Skills
+Social Marketing • Behaviour Change • Accessibility
+
+Words That Stick
+Raising awareness of Body Dysmorphic Disorder before diagnosis.
+→ View Case Study
+Challenge
+Body Dysmorphic Disorder often goes unrecognised among teenage girls until symptoms become severe.
+Strategy
+Positioned schools and peer conversations as the first point of intervention through a preventative awareness campaign.
+Result
+Independently developed the strategy from research through creative execution.
+Skills
+Health Communication • Consumer Behaviour • Social Marketing
+
+Recognition
+Highlights along the way.
+Landor Next Gen
+Selected for a global brand strategy programme with participants from 70+ countries.
+Kearney National Case Competition
+Developed a commercial growth strategy for a national business case.
+McKinsey Forward Programme
+Selected for a global management consulting programme focused on developing managerial skills.
+GroupM APAC Rising Star (Nominated)
+Recognised for outstanding performance across the Paid Digital Media India team.
+President's Recognition — GroupM India
+Awarded for data-driven optimisation strategies that significantly improved campaign performance.
+
+About
+A little about me.
+I enjoy solving problems where consumer psychology, analytics and creativity intersect. Whether I'm developing a strategy, analysing performance or exploring AI-assisted workflows, I'm motivated by creating work that delivers meaningful business value while strengthening the relationship between brands and people.
+
+Contact
+Let's connect.
+Whether it's a strategy challenge, collaboration or simply a conversation about marketing, I'd love to hear from you.
+Bonus points if it's over coffee, I'm always up for a coffee chat! 
+
+Email
+jivikajain90@gmail.com
+LinkedIn
+Phone
++61 410 123 983
+
+Footer
+Jivika Jain
+Strategy • Consumer Insights • AI & Analytics
+Sydney, Australia
+Student Visa (Subclass 500) · Available Part-Time (24 hrs/week) · Graduate Visa (Subclass 485) Eligible from 2027
+
