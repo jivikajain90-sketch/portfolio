@@ -1,0 +1,1 @@
+- [Screenshot stitching artifact](screenshot-tall-viewport-artifact.md) — very tall app_preview screenshots can duplicate/stitch content; cross-check with a normal-height viewport before treating it as a bug.

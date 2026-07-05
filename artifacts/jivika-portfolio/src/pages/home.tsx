@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -102,23 +102,63 @@ const categoryColors: Record<string, string> = {
   "Social Impact": "bg-pastel-lavender",
 };
 
+const navLinks = [
+  { id: "work", label: "Projects" },
+  { id: "toolkit", label: "Toolkit" },
+  { id: "recognition", label: "Recognition" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
+];
+
 export default function Home() {
   const [filter, setFilter] = useState("All work");
+  const [activeSection, setActiveSection] = useState<string>("");
   const categories = ["All work", "Brand Strategy", "Data & Insight", "Social Impact"];
   const filteredWorks = filter === "All work" ? works : works.filter((w) => w.category === filter);
+
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.getElementById(link.id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border py-5 px-6 md:px-12 flex justify-between items-center">
         <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain.</div>
         <div className="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
-          <a href="#work" className="hover:text-primary transition-colors">Projects</a>
-          <a href="#toolkit" className="hover:text-primary transition-colors">Toolkit</a>
-          <a href="#recognition" className="hover:text-primary transition-colors">Recognition</a>
-          <a href="#about" className="hover:text-primary transition-colors">About</a>
-          <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={`relative pb-1 transition-colors hover:text-primary ${
+                activeSection === link.id ? "text-primary" : ""
+              }`}
+            >
+              {link.label}
+              <span
+                className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
+                  activeSection === link.id ? "w-full" : "w-0"
+                }`}
+              />
+            </a>
+          ))}
         </div>
-        <Button size="sm" className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase hidden md:flex text-xs" asChild>
+        <Button size="sm" className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase hidden md:flex text-xs transition-transform hover:scale-105" asChild>
           <a href="mailto:jivikajain90@gmail.com">Say hello</a>
         </Button>
       </nav>
@@ -136,10 +176,10 @@ export default function Home() {
               <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-pastel-blue rotate-[-8deg]">
                 <path d="M50 5 L50 95 M5 50 L95 50 M25 25 L75 75 M25 75 L75 25" stroke="currentColor" strokeWidth="6" strokeLinecap="round"/>
               </svg>
-              <p className="font-hand text-2xl text-foreground/60">hi, I'm</p>
+              <p className="font-hand text-4xl text-foreground/60">hi, I'm</p>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-serif font-black leading-[0.95] tracking-tight mb-3">
+            <h1 className="text-3xl md:text-5xl font-serif font-black leading-[0.95] tracking-tight mb-3">
               Jivika Jain
             </h1>
             <p className="text-xl md:text-2xl font-serif font-bold text-primary mb-8">
@@ -154,8 +194,8 @@ export default function Home() {
               <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-5">Capabilities</p>
               <div className="grid sm:grid-cols-3 gap-6 max-w-4xl">
                 {capabilities.map((cap) => (
-                  <div key={cap.label}>
-                    <span className={`inline-block px-3 py-1 mb-3 ${cap.color} text-foreground text-[10px] font-bold uppercase tracking-widest`}>
+                  <div key={cap.label} className="transition-transform hover:-translate-y-1">
+                    <span className={`inline-block px-3 py-1 mb-3 ${cap.color} text-foreground text-[10px] font-bold uppercase tracking-widest transition-transform hover:scale-105`}>
                       {cap.label}
                     </span>
                     <p className="text-sm text-foreground/70 leading-relaxed">
@@ -167,10 +207,10 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap items-center gap-6">
-              <Button size="lg" className="rounded-none bg-primary text-primary-foreground hover:bg-foreground hover:text-background text-sm h-12 px-8 uppercase tracking-widest font-bold" asChild>
-                <a href="#work">Explore my work <ArrowRight className="ml-3 h-4 w-4" /></a>
+              <Button size="lg" className="group rounded-none bg-primary text-primary-foreground hover:bg-foreground hover:text-background text-sm h-12 px-8 uppercase tracking-widest font-bold transition-transform hover:scale-105 active:scale-95" asChild>
+                <a href="#work">Explore my work <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
               </Button>
-              <div className="relative inline-block rotate-[2deg]">
+              <div className="relative inline-block rotate-[2deg] transition-transform hover:rotate-0 hover:scale-105">
                 <span className="absolute -inset-1 bg-pastel-yellow -z-10"></span>
                 <a href="#contact" className="relative font-hand text-xl px-2 hover:text-foreground/70 transition-colors">
                   or just get in touch →
@@ -218,15 +258,18 @@ export default function Home() {
         <section id="toolkit" className="py-24 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">Strategic Toolkit</h2>
-            <p className="text-lg text-foreground/70 mb-16">The methods behind every strategy.</p>
+            <p className="text-lg text-foreground/70 mb-14">The methods behind every strategy.</p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
               {toolkitCategories.map((category, i) => (
                 <div key={i} className="flex flex-col">
-                  <h3 className="text-xl font-serif font-bold mb-5">{category.name}</h3>
-                  <div className="flex flex-wrap gap-2.5 mt-auto">
+                  <h3 className="text-lg font-serif font-bold mb-3">{category.name}</h3>
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {category.tools.map((tool) => (
-                      <span key={tool} className="text-sm md:text-base px-4 py-2 bg-background/60 border border-foreground/15 font-semibold">
+                      <span
+                        key={tool}
+                        className="text-sm px-3 py-1.5 bg-background/60 border border-foreground/15 font-semibold transition-all hover:bg-foreground hover:text-background hover:border-foreground cursor-default"
+                      >
                         {tool}
                       </span>
                     ))}
@@ -235,7 +278,7 @@ export default function Home() {
               ))}
             </div>
 
-            <p className="font-hand text-xl text-foreground/50 mt-16">
+            <p className="font-hand text-xl text-foreground/50 mt-14">
               Research • Insight Synthesis • Business Translation • Strategic Recommendations
             </p>
           </div>
@@ -253,8 +296,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -4 }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className={`relative border border-border p-8 overflow-hidden ${i === recognitions.length - 1 ? "md:col-span-2" : ""}`}
+                className={`relative border border-border p-8 overflow-hidden transition-shadow hover:shadow-lg ${i === recognitions.length - 1 ? "md:col-span-2" : ""}`}
               >
                 <div className={`absolute top-0 left-0 w-2 h-full ${item.color}`} />
                 <span className="font-serif text-6xl md:text-7xl font-black text-foreground/10 leading-none block mb-2">
@@ -387,6 +431,8 @@ function WorkCard({ work, index }: { work: any; index: number }) {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0 }}
+        whileHover={{ y: -6 }}
+        whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.4, delay: index * 0.04 }}
         onClick={() => setOpen(true)}
         role="button"
@@ -397,12 +443,12 @@ function WorkCard({ work, index }: { work: any; index: number }) {
             setOpen(true);
           }
         }}
-        className="bg-background text-foreground p-6 flex flex-col h-fit cursor-pointer transition-shadow hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        className="group bg-background text-foreground p-6 flex flex-col h-fit cursor-pointer transition-shadow hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex gap-1.5">
             {work.swatches.map((c: string, i: number) => (
-              <span key={i} className="w-3.5 h-3.5 rounded-full border border-foreground/10" style={{ backgroundColor: c }} />
+              <span key={i} className="w-3.5 h-3.5 rounded-full border border-foreground/10 transition-transform group-hover:scale-125" style={{ backgroundColor: c }} />
             ))}
           </div>
           <span className={`inline-block px-3 py-1 ${categoryColor} text-foreground text-[10px] font-bold uppercase tracking-widest`}>
@@ -410,14 +456,14 @@ function WorkCard({ work, index }: { work: any; index: number }) {
           </span>
         </div>
 
-        <h3 className="text-2xl font-serif font-bold leading-tight mb-3">{work.title}</h3>
+        <h3 className="text-2xl font-serif font-bold leading-tight mb-3 transition-colors group-hover:text-primary">{work.title}</h3>
 
         <p className="text-base leading-relaxed text-foreground/80 mb-4">
           {work.summary}
         </p>
 
-        <span className="font-bold text-primary text-sm mt-auto pt-2">
-          → View Case Study
+        <span className="font-bold text-primary text-sm mt-auto pt-2 inline-flex items-center gap-1">
+          <span className="transition-transform group-hover:translate-x-1">→</span> View Case Study
         </span>
       </motion.div>
 
