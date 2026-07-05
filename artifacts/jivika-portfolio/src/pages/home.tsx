@@ -89,10 +89,10 @@ const works = [
 ];
 
 const recognitions = [
-  { title: "Landor Next Gen", desc: "Selected for a global brand strategy programme with participants from 70+ countries.", color: "bg-pastel-blue" },
-  { title: "Kearney National Case Competition", desc: "Developed a commercial growth strategy for a national business case.", color: "bg-pastel-green" },
-  { title: "McKinsey Forward Programme", desc: "Selected for a global management consulting programme focused on developing managerial skills.", color: "bg-pastel-yellow" },
-  { title: "GroupM APAC Rising Star (Nominated)", desc: "Recognised for outstanding performance across the Paid Digital Media India team.", color: "bg-pastel-lavender" },
+  { title: "Landor Next Gen 2025", desc: "Selected for a global brand strategy programme with participants from 70+ countries.", color: "bg-pastel-blue" },
+  { title: "Kearney National Case Competition 2025", desc: "Developed a commercial growth strategy for a national business case.", color: "bg-pastel-green" },
+  { title: "McKinsey Forward Program 2026", desc: "Selected for a global management consulting programme focused on developing managerial skills.", color: "bg-pastel-yellow" },
+  { title: "GroupM APAC Rising Star 2024 (Nominated)", desc: "Recognised for outstanding performance across the Paid Digital Media India team.", color: "bg-pastel-lavender" },
   { title: "President's Recognition — GroupM India", desc: "Awarded for data-driven optimisation strategies that significantly improved campaign performance.", color: "bg-pastel-pink" },
 ];
 
@@ -191,7 +191,7 @@ export default function Home() {
             </p>
 
             <div className="mb-14">
-              <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-5">Capabilities</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-foreground/60 mb-5">Capabilities</p>
               <div className="grid sm:grid-cols-3 gap-6 max-w-4xl">
                 {capabilities.map((cap) => (
                   <div key={cap.label} className="transition-transform hover:-translate-y-1">
