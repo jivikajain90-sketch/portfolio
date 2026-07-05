@@ -103,7 +103,7 @@ const recognitions = [
 
 const categoryColors: Record<string, string> = {
   "Brand Strategy": "bg-pastel-blue",
-  "Consulting": "bg-pastel-orange",
+  "Consulting": "bg-pastel-yellow",
   "Data & Insight": "bg-pastel-green",
   "Social Impact": "bg-pastel-lavender",
 };
