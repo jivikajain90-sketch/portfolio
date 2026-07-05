@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const capabilities = [
   { label: "Strategy", color: "bg-pastel-blue", items: ["Brand Strategy", "Marketing Strategy", "Go-to-Market", "Innovation"] },
@@ -115,6 +118,21 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("");
   const categories = ["All work", "Brand Strategy", "Data & Insight", "Social Impact"];
   const filteredWorks = filter === "All work" ? works : works.filter((w) => w.category === filter);
+  const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
+  const { toast } = useToast();
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!contactForm.name || !contactForm.email || !contactForm.message) {
+      toast({ title: "Please fill in every field", description: "Name, email and message are all required." });
+      return;
+    }
+    const subject = encodeURIComponent(`Portfolio enquiry from ${contactForm.name}`);
+    const body = encodeURIComponent(`${contactForm.message}\n\n— ${contactForm.name} (${contactForm.email})`);
+    window.location.href = `mailto:jivikajain90@gmail.com?subject=${subject}&body=${body}`;
+    toast({ title: "Opening your email client…", description: "Your message is ready to send." });
+    setContactForm({ name: "", email: "", message: "" });
+  };
 
   useEffect(() => {
     const sections = navLinks
@@ -289,7 +307,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-3">Recognition</h2>
           <p className="text-lg text-muted-foreground mb-14">Highlights along the way.</p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {recognitions.map((item, i) => (
               <motion.div
                 key={i}
@@ -298,14 +316,14 @@ export default function Home() {
                 viewport={{ once: true }}
                 whileHover={{ y: -4 }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className={`relative border border-border p-8 overflow-hidden transition-shadow hover:shadow-lg ${i === recognitions.length - 1 ? "md:col-span-2" : ""}`}
+                className={`relative border border-border p-5 overflow-hidden transition-shadow hover:shadow-lg ${i === recognitions.length - 1 ? "md:col-span-2" : ""}`}
               >
-                <div className={`absolute top-0 left-0 w-2 h-full ${item.color}`} />
-                <span className="font-serif text-6xl md:text-7xl font-black text-foreground/10 leading-none block mb-2">
+                <div className={`absolute top-0 left-0 w-1.5 h-full ${item.color}`} />
+                <span className="font-serif text-4xl md:text-5xl font-black text-foreground/10 leading-none block mb-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-2xl font-serif font-bold mb-3 -mt-8 relative">{item.title}</h3>
-                <p className="text-base text-muted-foreground max-w-md">{item.desc}</p>
+                <h3 className="text-lg font-serif font-bold mb-1.5 -mt-5 relative">{item.title}</h3>
+                <p className="text-sm text-muted-foreground max-w-md">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -336,6 +354,54 @@ export default function Home() {
             <p className="text-lg text-background/70 mb-12 max-w-xl mx-auto leading-relaxed">
               Bonus points if it's over coffee, I'm always up for a coffee chat!
             </p>
+
+            <form onSubmit={handleContactSubmit} className="text-left flex flex-col gap-4 max-w-lg mx-auto mb-12">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex-1 flex flex-col gap-1.5">
+                  <label htmlFor="contact-name" className="text-xs font-bold uppercase tracking-widest text-background/50">Name</label>
+                  <Input
+                    id="contact-name"
+                    value={contactForm.name}
+                    onChange={(e) => setContactForm((f) => ({ ...f, name: e.target.value }))}
+                    placeholder="Your name"
+                    className="rounded-none border-background/25 bg-background/5 text-background placeholder:text-background/40 focus-visible:ring-pastel-pink h-11"
+                  />
+                </div>
+                <div className="flex-1 flex flex-col gap-1.5">
+                  <label htmlFor="contact-email" className="text-xs font-bold uppercase tracking-widest text-background/50">Email</label>
+                  <Input
+                    id="contact-email"
+                    type="email"
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm((f) => ({ ...f, email: e.target.value }))}
+                    placeholder="you@example.com"
+                    className="rounded-none border-background/25 bg-background/5 text-background placeholder:text-background/40 focus-visible:ring-pastel-pink h-11"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="contact-message" className="text-xs font-bold uppercase tracking-widest text-background/50">Message</label>
+                <Textarea
+                  id="contact-message"
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm((f) => ({ ...f, message: e.target.value }))}
+                  placeholder="What's on your mind?"
+                  rows={4}
+                  className="rounded-none border-background/25 bg-background/5 text-background placeholder:text-background/40 focus-visible:ring-pastel-pink resize-none"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="self-start bg-pastel-pink text-foreground hover:bg-pastel-pink/90 rounded-none font-bold tracking-wide px-6 h-11 transition-transform hover:scale-105 active:scale-95"
+              >
+                Send message
+                <Send className="h-4 w-4 ml-2" />
+              </Button>
+            </form>
+
+            <p className="text-xs font-bold uppercase tracking-widest text-background/40 mb-5">Or reach out directly</p>
 
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-8 gap-y-5 mb-4">
               <a
@@ -443,7 +509,7 @@ function WorkCard({ work, index }: { work: any; index: number }) {
             setOpen(true);
           }
         }}
-        className="group bg-background text-foreground p-6 flex flex-col h-fit cursor-pointer transition-shadow hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        className="group bg-background text-foreground p-6 flex flex-col h-full cursor-pointer transition-shadow hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
         <div className="flex items-center justify-between gap-2 mb-4">
           <div className="flex gap-1.5">
