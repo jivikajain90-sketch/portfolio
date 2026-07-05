@@ -183,7 +183,7 @@ export default function Home() {
         </Button>
       </nav>
 
-      <main className="pb-20">
+      <main>
         {/* HERO SECTION */}
         <section className="min-h-[90vh] flex items-center px-6 md:px-12 lg:px-24 pt-32 pb-16">
           <motion.div
@@ -271,15 +271,15 @@ export default function Home() {
         </section>
 
         {/* TOOLKIT SECTION */}
-        <section id="toolkit" className="py-24 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground">
+        <section id="toolkit" className="py-16 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">Strategic Toolkit</h2>
-            <p className="text-lg text-foreground/70 mb-14">The methods behind every strategy.</p>
+            <p className="text-lg text-foreground/70 mb-10">The methods behind every strategy.</p>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4">
               {toolkitCategories.map((category, i) => (
-                <div key={i} className="flex flex-col bg-background/50 border border-foreground/10 p-6 h-full">
-                  <h3 className="text-lg font-serif font-bold mb-3">{category.name}</h3>
+                <div key={i} className="flex flex-col bg-background/50 border border-foreground/10 p-5 h-full">
+                  <h3 className="text-lg font-serif font-bold mb-2.5">{category.name}</h3>
                   <div className="flex flex-wrap content-start gap-2">
                     {category.tools.map((tool) => (
                       <span
@@ -293,10 +293,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-
-            <p className="font-hand text-xl text-foreground/50 mt-14">
-              Research • Insight Synthesis • Business Translation • Strategic Recommendations
-            </p>
           </div>
         </section>
 
@@ -320,8 +316,8 @@ export default function Home() {
                 <span className="font-serif text-4xl md:text-5xl font-black text-foreground/10 leading-none block mb-1">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-lg font-serif font-bold mb-1.5 -mt-5 relative">{item.title}</h3>
-                <p className="text-sm text-muted-foreground max-w-md">{item.desc}</p>
+                <h3 className="text-2xl font-serif font-bold mb-1.5 -mt-5 relative">{item.title}</h3>
+                <p className="text-base text-muted-foreground max-w-md">{item.desc}</p>
               </motion.div>
             ))}
           </div>
