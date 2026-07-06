@@ -472,7 +472,7 @@ export default function Home() {
         <div className="pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs font-bold uppercase tracking-widest text-muted-foreground">
           <div>Jivika Jain — Sydney, Australia</div>
           <div className="text-center md:text-right">
-            Student Visa (Subclass 500) · Available Part-Time (24 hrs/week) · Graduate Visa (Subclass 485) Eligible from 2027
+            Student Visa (500) working hours (24h/week) till Mar’27 | Eligible for Graduate Visa (485) Full-time (Dec’26 - Dec’29)
           </div>
         </div>
       </footer>
