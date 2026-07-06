@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone, Send } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone, Send, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
 const capabilities = [
   { label: "Strategy", color: "bg-pastel-blue", items: ["Brand Strategy", "Marketing Strategy", "Go-to-Market", "Innovation"] },
   { label: "Analytics", color: "bg-pastel-green", items: ["Marketing Analytics", "SQL", "Python", "Tableau", "AI-Assisted Analysis"] },
   { label: "Research", color: "bg-pastel-lavender", items: ["Consumer Insight", "Market Research", "Data Storytelling", "Performance Measurement"] },
 ];
-
 const toolkitCategories = [
   { name: "Research & Insight", tools: ["Google Trends", "SEMrush", "Google Keyword Planner", "Adobe Analytics", "GA4"] },
   { name: "Analytics & Visualisation", tools: ["Python", "SQL", "Tableau", "Power BI", "SPSS", "Excel", "GitHub", "Natural Language Processing"] },
@@ -23,7 +21,6 @@ const toolkitCategories = [
   { name: "Design & Collaboration", tools: ["Figma", "Canva", "Miro", "WordPress"] },
   { name: "AI Workflow", tools: ["ChatGPT", "Claude", "Copilot", "Gemini", "Google NotebookLM", "Replit"] },
 ];
-
 const works = [
   {
     id: 1,
@@ -60,12 +57,12 @@ const works = [
   },
   {
     id: 4,
-    category: "Data & Insight",
-    title: "Fifth Frame",
+    category: "Consulting",
+    title: "Vestagrid x South Ridge",
     summary: "A consulting roadmap for post-merger culture integration.",
     challenge: "Two organisations faced significant cultural conflict following a merger.",
     strategy: "Developed a phased integration roadmap balancing commercial objectives with organisational culture.",
-    result: "Shortlisted to present the solution directly to the client.",
+    result: "Shortlisted to present the solution directly to the client, Fifth Frame.",
     skills: ["Consulting", "Stakeholder Strategy", "Change Management"],
     swatches: ["#33414E", "#8C97A1", "#F2F2F2"],
   },
@@ -92,7 +89,6 @@ const works = [
     swatches: ["#B7A6D9", "#DCEAF0", "#FFFFFF"],
   },
 ];
-
 const recognitions = [
   { title: "Landor Next Gen 2025", desc: "Selected for a global brand strategy programme with participants from 70+ countries.", color: "bg-pastel-blue" },
   { title: "Kearney National Case Competition 2025", desc: "Developed a commercial growth strategy for a national business case.", color: "bg-pastel-green" },
@@ -100,13 +96,12 @@ const recognitions = [
   { title: "GroupM APAC Rising Star 2024 (Nominated)", desc: "Recognised for outstanding performance across the Paid Digital Media India team.", color: "bg-pastel-lavender" },
   { title: "President's Recognition — GroupM India", desc: "Awarded for data-driven optimisation strategies that significantly improved campaign performance.", color: "bg-pastel-pink" },
 ];
-
 const categoryColors: Record<string, string> = {
   "Brand Strategy": "bg-pastel-blue",
+  "Consulting": "bg-pastel-yellow",
   "Data & Insight": "bg-pastel-green",
   "Social Impact": "bg-pastel-lavender",
 };
-
 const navLinks = [
   { id: "work", label: "Projects" },
   { id: "toolkit", label: "Toolkit" },
@@ -114,15 +109,14 @@ const navLinks = [
   { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
 ];
-
 export default function Home() {
   const [filter, setFilter] = useState("All work");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
-  const categories = ["All work", "Brand Strategy", "Data & Insight", "Social Impact"];
+  const categories = ["All work", "Brand Strategy", "Consulting", "Data & Insight", "Social Impact"];
   const filteredWorks = filter === "All work" ? works : works.filter((w) => w.category === filter);
   const [contactForm, setContactForm] = useState({ name: "", email: "", message: "" });
   const { toast } = useToast();
-
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contactForm.name || !contactForm.email || !contactForm.message) {
@@ -135,12 +129,10 @@ export default function Home() {
     toast({ title: "Opening your email client…", description: "Your message is ready to send." });
     setContactForm({ name: "", email: "", message: "" });
   };
-
   useEffect(() => {
     const sections = navLinks
       .map((link) => document.getElementById(link.id))
       .filter((el): el is HTMLElement => Boolean(el));
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -151,18 +143,16 @@ export default function Home() {
       },
       { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
     );
-
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border py-5 px-6 md:px-12 flex justify-between items-center">
-        <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain.</div>
+        <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain</div>
         <div className="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
           {navLinks.map((link) => (
-            <a
+            
               key={link.id}
               href={`#${link.id}`}
               className={`relative pb-1 transition-colors hover:text-primary ${
@@ -181,8 +171,37 @@ export default function Home() {
         <Button size="sm" className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase hidden md:flex text-xs transition-transform hover:scale-105" asChild>
           <a href="mailto:jivikajain90@gmail.com">Say hello</a>
         </Button>
+        <button
+          onClick={() => setMobileMenuOpen((v) => !v)}
+          className="md:hidden p-2 -mr-2"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+        {mobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border flex flex-col py-4 px-6">
+            {navLinks.map((link) => (
+              
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`py-3 text-sm font-semibold uppercase tracking-widest border-b border-border/50 last:border-none ${
+                  activeSection === link.id ? "text-primary" : ""
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+            
+              href="mailto:jivikajain90@gmail.com"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-4 text-center bg-foreground text-background py-3 text-xs font-bold uppercase tracking-widest"
+            >
+              Say hello
+            </a>
+          </div>
+        )}
       </nav>
-
       <main>
         {/* HERO SECTION */}
         <section className="min-h-[90vh] flex items-center px-6 md:px-12 lg:px-24 pt-32 pb-16">
@@ -198,14 +217,12 @@ export default function Home() {
               </svg>
               <p className="font-hand text-4xl text-foreground/60">hi, I'm</p>
             </div>
-
             <h1 className="text-3xl md:text-5xl font-serif font-black leading-[0.95] tracking-tight mb-3">
               Jivika Jain
             </h1>
             <p className="text-xl md:text-2xl font-medium leading-relaxed text-foreground/80 max-w-2xl border-l-4 border-pastel-green pl-6 mb-14">
               Turning data, consumer insight and AI-assisted analysis into strategies that create meaningful business impact.
             </p>
-
             <div className="mb-14">
               <p className="text-base font-bold uppercase tracking-widest text-foreground/60 mb-5">Capabilities</p>
               <div className="grid sm:grid-cols-3 gap-6 max-w-4xl">
@@ -221,7 +238,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
             <div className="flex flex-wrap items-center gap-6">
               <Button size="lg" className="group rounded-none bg-primary text-primary-foreground hover:bg-foreground hover:text-background text-sm h-12 px-8 uppercase tracking-widest font-bold transition-transform hover:scale-105 active:scale-95" asChild>
                 <a href="#work">Explore my work <ArrowRight className="ml-3 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
@@ -235,7 +251,6 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
-
         {/* WORK SECTION */}
         <section id="work" className="py-24 px-6 md:px-12 lg:px-24 bg-foreground text-background">
           <div className="max-w-6xl mx-auto">
@@ -247,7 +262,6 @@ export default function Home() {
                 Strategy, made visible. Six projects across brand strategy, marketing analytics, consulting and social impact.
               </p>
             </div>
-
             <div className="flex flex-wrap gap-2 mb-12">
               {categories.map((c) => (
                 <button
@@ -259,7 +273,6 @@ export default function Home() {
                 </button>
               ))}
             </div>
-
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <AnimatePresence mode="popLayout">
                 {filteredWorks.map((work, idx) => (
@@ -269,13 +282,11 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* TOOLKIT SECTION */}
         <section id="toolkit" className="py-16 px-6 md:px-12 lg:px-24 bg-pastel-lavender text-foreground">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-4">Strategic Toolkit</h2>
             <p className="text-lg text-foreground/70 mb-10">The methods behind every strategy.</p>
-
             <div className="grid md:grid-cols-2 gap-4">
               {toolkitCategories.map((category, i) => (
                 <div key={i} className="flex flex-col bg-background/50 border border-foreground/10 p-5 h-full">
@@ -295,12 +306,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         {/* RECOGNITION SECTION */}
         <section id="recognition" className="py-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-serif font-black tracking-tight mb-3">Recognition</h2>
           <p className="text-lg text-muted-foreground mb-14">Highlights along the way.</p>
-
           <div className="grid md:grid-cols-2 gap-4">
             {recognitions.map((item, i) => (
               <motion.div
@@ -322,7 +331,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-
         {/* ABOUT SECTION */}
         <section id="about" className="py-24 px-6 md:px-12 lg:px-24 bg-pastel-blue/15 text-foreground">
           <div className="max-w-3xl mx-auto">
@@ -333,22 +341,18 @@ export default function Home() {
             </p>
           </div>
         </section>
-
         {/* CONTACT SECTION */}
         <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 bg-foreground text-background">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="font-hand text-xl text-pastel-pink mb-6">Contact</p>
-
             <h2 className="text-3xl md:text-5xl font-serif font-black tracking-tight leading-tight mb-6">
               Let's connect.
             </h2>
             <p className="text-lg text-background/70 mb-2 max-w-xl mx-auto leading-relaxed">
-              Whether it's a strategy challenge, collaboration or simply a conversation about marketing, I'd love to hear from you.
+              Whether it's a strategy challenge, collaboration or simply a conversation about brands, I'd love to hear from you.
             </p>
             <p className="text-lg text-background/70 mb-12 max-w-xl mx-auto leading-relaxed">
               Bonus points if it's over coffee, I'm always up for a coffee chat!
             </p>
-
             <form onSubmit={handleContactSubmit} className="text-left flex flex-col gap-4 max-w-lg mx-auto mb-12">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1 flex flex-col gap-1.5">
@@ -373,7 +377,6 @@ export default function Home() {
                   />
                 </div>
               </div>
-
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="contact-message" className="text-xs font-bold uppercase tracking-widest text-background/50">Message</label>
                 <Textarea
@@ -385,7 +388,6 @@ export default function Home() {
                   className="rounded-none border-background/25 bg-background/5 text-background placeholder:text-background/40 focus-visible:ring-pastel-pink resize-none"
                 />
               </div>
-
               <Button
                 type="submit"
                 className="self-start bg-pastel-pink text-foreground hover:bg-pastel-pink/90 rounded-none font-bold tracking-wide px-6 h-11 transition-transform hover:scale-105 active:scale-95"
@@ -394,21 +396,17 @@ export default function Home() {
                 <Send className="h-4 w-4 ml-2" />
               </Button>
             </form>
-
             <p className="text-xs font-bold uppercase tracking-widest text-background/40 mb-5">Or reach out directly</p>
-
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-8 gap-y-5 mb-4">
-              <a
+              
                 href="mailto:jivikajain90@gmail.com"
                 className="flex items-center gap-2 text-sm md:text-base font-bold tracking-wide hover:text-pastel-pink transition-colors"
               >
                 <Mail className="h-4 w-4 shrink-0" />
                 jivikajain90@gmail.com
               </a>
-
               <span className="hidden sm:block h-4 w-px bg-background/25" />
-
-              <a
+              
                 href="https://www.linkedin.com/in/jivika-jain-2001/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -418,10 +416,8 @@ export default function Home() {
                 LinkedIn
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
-
               <span className="hidden sm:block h-4 w-px bg-background/25" />
-
-              <a
+              
                 href="tel:+61410123983"
                 className="flex items-center gap-2 text-sm md:text-base font-bold tracking-wide hover:text-pastel-pink transition-colors"
               >
@@ -432,19 +428,14 @@ export default function Home() {
           </div>
         </section>
       </main>
-
       <footer className="px-6 md:px-12 lg:px-24 pt-16 pb-8 bg-background border-t border-border">
         <div className="flex flex-col md:flex-row justify-between gap-10 pb-10">
           <div className="max-w-xs">
-            <div className="font-serif font-black text-xl tracking-tighter uppercase mb-3">Jivika Jain.</div>
+            <div className="font-serif font-black text-xl tracking-tighter uppercase mb-3">Jivika Jain</div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Strategy • Consumer Insights • AI &amp; Analytics
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Sydney, Australia
-            </p>
           </div>
-
           <div className="flex gap-16">
             <div className="flex flex-col gap-3">
               <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Explore</p>
@@ -453,7 +444,6 @@ export default function Home() {
               <a href="#recognition" className="text-sm font-medium hover:text-primary transition-colors">Recognition</a>
               <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">About</a>
             </div>
-
             <div className="flex flex-col gap-3">
               <p className="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Connect</p>
               <a href="mailto:jivikajain90@gmail.com" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors">
@@ -468,22 +458,19 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         <div className="pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-3 text-xs font-bold uppercase tracking-widest text-muted-foreground">
           <div>Jivika Jain — Sydney, Australia</div>
           <div className="text-center md:text-right">
-            Student Visa (Subclass 500) · Available Part-Time (24 hrs/week) · Graduate Visa (Subclass 485) Eligible from 2027
+            Student Visa (500) working hours (24h/week) till Mar'27 | Eligible for Graduate Visa (485) Full-time (Dec'26 - Jan'30)
           </div>
         </div>
       </footer>
     </div>
   );
 }
-
 function WorkCard({ work, index }: { work: any; index: number }) {
   const [open, setOpen] = useState(false);
   const categoryColor = categoryColors[work.category] ?? "bg-pastel-pink";
-
   return (
     <>
       <motion.div
@@ -515,18 +502,14 @@ function WorkCard({ work, index }: { work: any; index: number }) {
             {work.category}
           </span>
         </div>
-
         <h3 className="text-2xl font-serif font-bold leading-tight mb-3 transition-colors group-hover:text-primary">{work.title}</h3>
-
         <p className="text-base leading-relaxed text-foreground/80 mb-4">
           {work.summary}
         </p>
-
         <span className="font-bold text-primary text-sm mt-auto pt-2 inline-flex items-center gap-1">
           <span className="transition-transform group-hover:translate-x-1">→</span> View Case Study
         </span>
       </motion.div>
-
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-w-2xl rounded-none p-0 gap-0 max-h-[85vh] overflow-y-auto">
           <div className="p-8 md:p-10">
@@ -540,15 +523,12 @@ function WorkCard({ work, index }: { work: any; index: number }) {
                 {work.category}
               </span>
             </div>
-
             <DialogTitle className="text-3xl md:text-4xl font-serif font-black leading-tight mb-4">
               {work.title}
             </DialogTitle>
-
             <p className="text-lg leading-relaxed text-foreground/80 mb-8">
               {work.summary}
             </p>
-
             <div className="flex flex-col gap-6 text-base leading-relaxed border-t border-border pt-8">
               <div>
                 <p className="font-bold text-primary uppercase tracking-widest text-xs mb-2">Challenge</p>
