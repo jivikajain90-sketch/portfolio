@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone, Send } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Mail, Linkedin, Phone, Send, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
@@ -118,6 +118,7 @@ const navLinks = [
 
 export default function Home() {
   const [filter, setFilter] = useState("All work");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const categories = ["All work", "Brand Strategy", "Consulting", "Data & Insight", "Social Impact"];
   const filteredWorks = filter === "All work" ? works : works.filter((w) => w.category === filter);
@@ -160,29 +161,63 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border py-5 px-6 md:px-12 flex justify-between items-center">
-        <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain.</div>
-        <div className="flex gap-3 md:gap-8 text-[10px] md:text-xs font-semibold uppercase tracking-widest overflow-x-auto whitespace-nowrap">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              className={`relative pb-1 transition-colors hover:text-primary ${
-                activeSection === link.id ? "text-primary" : ""
-              }`}
-            >
-              {link.label}
-              <span
-                className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
-                  activeSection === link.id ? "w-full" : "w-0"
-                }`}
-              />
-            </a>
-          ))}
-        </div>
-        <Button size="sm" className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase flex text-xs transition-transform hover:scale-105 shrink-0" asChild>
-          <a href="mailto:jivikajain90@gmail.com">Say hello</a>
-        </Button>
-      </nav>
+  <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain.</div>
+
+  <div className="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
+    {navLinks.map((link) => (
+      
+        key={link.id}
+        href={`#${link.id}`}
+        className={`relative pb-1 transition-colors hover:text-primary ${
+          activeSection === link.id ? "text-primary" : ""
+        }`}
+      >
+        {link.label}
+        <span
+          className={`absolute left-0 -bottom-0.5 h-[2px] bg-primary transition-all duration-300 ${
+            activeSection === link.id ? "w-full" : "w-0"
+          }`}
+        />
+      </a>
+    ))}
+  </div>
+
+  <Button size="sm" className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase hidden md:flex text-xs transition-transform hover:scale-105" asChild>
+    <a href="mailto:jivikajain90@gmail.com">Say hello</a>
+  </Button>
+
+  <button
+    onClick={() => setMobileMenuOpen((v) => !v)}
+    className="md:hidden p-2 -mr-2"
+    aria-label="Toggle menu"
+  >
+    {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+  </button>
+
+  {mobileMenuOpen && (
+    <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border flex flex-col py-4 px-6">
+      {navLinks.map((link) => (
+        
+          key={link.id}
+          href={`#${link.id}`}
+          onClick={() => setMobileMenuOpen(false)}
+          className={`py-3 text-sm font-semibold uppercase tracking-widest border-b border-border/50 last:border-none ${
+            activeSection === link.id ? "text-primary" : ""
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      
+        href="mailto:jivikajain90@gmail.com"
+        onClick={() => setMobileMenuOpen(false)}
+        className="mt-4 text-center bg-foreground text-background py-3 text-xs font-bold uppercase tracking-widest"
+      >
+        Say hello
+      </a>
+    </div>
+  )}
+</nav>
 
       <main>
         {/* HERO SECTION */}
