@@ -398,7 +398,7 @@ export default function Home() {
             </form>
             <p className="text-xs font-bold uppercase tracking-widest text-background/40 mb-5">Or reach out directly</p>
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-x-8 gap-y-5 mb-4">
-              
+                <a
                 href="mailto:jivikajain90@gmail.com"
                 className="flex items-center gap-2 text-sm md:text-base font-bold tracking-wide hover:text-pastel-pink transition-colors"
               >
@@ -406,7 +406,7 @@ export default function Home() {
                 jivikajain90@gmail.com
               </a>
               <span className="hidden sm:block h-4 w-px bg-background/25" />
-              
+                <a
                 href="https://www.linkedin.com/in/jivika-jain-2001/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -417,7 +417,7 @@ export default function Home() {
                 <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
               <span className="hidden sm:block h-4 w-px bg-background/25" />
-              
+                <a
                 href="tel:+61410123983"
                 className="flex items-center gap-2 text-sm md:text-base font-bold tracking-wide hover:text-pastel-pink transition-colors"
               >
