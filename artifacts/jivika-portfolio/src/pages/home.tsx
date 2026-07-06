@@ -161,7 +161,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border py-5 px-6 md:px-12 flex justify-between items-center">
         <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain.</div>
-        <div className="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
+        <div className="flex gap-3 md:gap-8 text-[10px] md:text-xs font-semibold uppercase tracking-widest overflow-x-auto whitespace-nowrap">
           {navLinks.map((link) => (
             <a
               key={link.id}
@@ -179,7 +179,7 @@ export default function Home() {
             </a>
           ))}
         </div>
-        <Button size="sm" className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase hidden md:flex text-xs transition-transform hover:scale-105" asChild>
+        <Button size="sm" className="rounded-none bg-foreground text-background hover:bg-primary font-bold tracking-widest uppercase flex text-xs transition-transform hover:scale-105 shrink-0" asChild>
           <a href="mailto:jivikajain90@gmail.com">Say hello</a>
         </Button>
       </nav>
