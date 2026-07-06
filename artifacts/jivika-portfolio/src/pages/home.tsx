@@ -152,7 +152,7 @@ export default function Home() {
         <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain</div>
         <div className="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
           {navLinks.map((link) => (
-            
+              <a
               key={link.id}
               href={`#${link.id}`}
               className={`relative pb-1 transition-colors hover:text-primary ${
@@ -181,7 +181,7 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border flex flex-col py-4 px-6">
             {navLinks.map((link) => (
-              
+                <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={() => setMobileMenuOpen(false)}
@@ -192,7 +192,7 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
-            
+              <a
               href="mailto:jivikajain90@gmail.com"
               onClick={() => setMobileMenuOpen(false)}
               className="mt-4 text-center bg-foreground text-background py-3 text-xs font-bold uppercase tracking-widest"
