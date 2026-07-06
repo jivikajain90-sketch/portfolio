@@ -161,7 +161,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border py-5 px-6 md:px-12 flex justify-between items-center">
-  <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain.</div>
+  <div className="font-serif font-black text-xl tracking-tighter uppercase">Jivika Jain</div>
 
   <div className="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest">
     {navLinks.map((link) => (
@@ -471,7 +471,7 @@ export default function Home() {
       <footer className="px-6 md:px-12 lg:px-24 pt-16 pb-8 bg-background border-t border-border">
         <div className="flex flex-col md:flex-row justify-between gap-10 pb-10">
           <div className="max-w-xs">
-            <div className="font-serif font-black text-xl tracking-tighter uppercase mb-3">Jivika Jain.</div>
+            <div className="font-serif font-black text-xl tracking-tighter uppercase mb-3">Jivika Jain</div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Strategy • Consumer Insights • AI &amp; Analytics
             </p>
