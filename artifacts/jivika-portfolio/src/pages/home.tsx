@@ -440,9 +440,6 @@ export default function Home() {
             <p className="text-sm text-muted-foreground leading-relaxed">
               Strategy • Consumer Insights • AI &amp; Analytics
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed mt-1">
-              Sydney, Australia
-            </p>
           </div>
 
           <div className="flex gap-16">
